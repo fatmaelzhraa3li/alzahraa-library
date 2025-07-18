@@ -1,0 +1,410 @@
+/* تنسيقات موجوده بمل صفحه  */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f2f3f5;
+  direction: rtl;
+}
+
+/* الهيدر والنافيجيشن */
+header {
+  background-color: #3b4c66;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #f2f3f5;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+  color: #3b4c66;
+  border-color: #3b4c66;
+}
+
+
+
+footer {
+  background-color: #3b4c66;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  margin-top: 40px;
+}
+footer p {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+} 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/*تكملة تنسيقات صفحه index.html */
+
+.about-search {
+background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+  padding: 70px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about {
+  text-align: center;
+  max-width: 600px;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+}
+
+.search input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search button {
+  padding: 8px 12px;
+  background-color: #113F67;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background-color: #34495e;
+}
+/* الكتب المقترحة */
+.suggested-books {
+  padding: 20px;
+}
+
+.suggested-books h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+
+/* الحاوية الرئيسية اللي بتحوي كل الكروت */
+#booksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* كارت كل كتاب */
+.book-card {
+  width: 250px; /* حجم الكارت */
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.book-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+  width: 100%;
+  height: 280px; /* ارتفاع أكبر للصورة */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.book-card h3 {
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 5px 0;
+}
+
+.book-card p {
+  font-size: 15px;
+  color: #555;
+  margin: 0;
+}
+
+
+.main-heading {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: #113F67;
+  margin: 30px 0 10px;
+  font: bold;
+  padding-bottom: 10px;
+} 
+
+/* استجابة للموبايل */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search input[type="text"] {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*تكملة تنسيقات صفحه contact.html */
+.form-contact{
+  background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+  padding: 10px;
+  margin-top: 90px;
+}
+
+
+
+.form-contact h1{
+  text-align: center;
+  margin: 50px;
+}
+
+
+form {
+  width: 60%;                 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  background: linear-gradient(145deg, #f5f6f7, #e1e4e8);
+  padding: 40px 40px 40px 70px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* لو حابة تزودي تنسيقات إضافية */
+form input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 25px;
+}
+
+
+
+/* لو حابة تزودي تنسيقات إضافية */
+form textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 25px;
+}
+
+
+
+
+form button {
+  background: #506180;
+  color: white;
+  color: white;
+  border: none;
+  display: block;
+  width: 35%;                 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #3b4c66;
+} 
+
+
+
+
+
+
+/* تنسيقات قسم معلومات التواصل (contact-info) */
+.contact-info {
+  width: 100%;                 /* تأخذ عرض الصفحة بالكامل */
+  margin: 50px auto;           /* هامش علوي وسفلي 20px وتوسيط أفقي */
+  background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+  padding: 40px 30px;          /* بادينج رأسي 40px وأفقي 20px */
+  border-radius: 0;            /* زوايا حادة */
+  box-shadow: none;            /* لا يوجد ظل */
+  box-sizing: border-box;
+  text-align: center;          /* توسيط المحتوى الداخلي */
+}
+
+.contact-info h1 {
+  margin-bottom: 50px;         /* مسافة تحت عنوان معلومات التواصل */
+  color: #2c3e50;              /* لون العنوان */
+  font-size: 24px;             /* حجم العنوان */
+}
+
+
+
+/* حاوية الكروت - لترتيب الكروت جنبًا إلى جنب */
+.contact-methods-container {
+  display: flex;               /* تفعيل Flexbox لترتيب العناصر أفقياً */
+  flex-wrap: wrap;             /* تسمح للكروت بالانتقال لسطر جديد إذا لم يكن هناك مساحة */
+  justify-content: center;     /* توسيط الكروت داخل الحاوية أفقياً */
+  gap: 40px;                   /* مسافة 10 بكسل بين الكروت */
+  margin-top: 20px;            /* مسافة من أعلى الحاوية */
+}
+
+/* الكروت الفردية - تم تصغير حجمها أكثر */
+.contact-card {
+  flex: 0 0 auto;              /* يمنع النمو والتقلص التلقائي للكارد، ويستخدم العرض المحدد */
+  width: 160px;                /* عرض ثابت للكارد */
+  
+  background: linear-gradient(145deg, #f5f6f7, #e1e4e8);
+  padding: 20px;               /* بادينج داخلي أصغر */
+  border-radius: 8px;          /* زوايا دائرية */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  text-align: center;          /* توسيط المحتوى داخل الكارد */
+  text-decoration: none;       /* إزالة خط التسطير من الروابط */
+  color: #333;                 /* لون نص عام للكارد */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التمرير */
+}
+
+.contact-card:hover {
+  transform: translateY(-5px); /* رفع الكارد قليلاً عند التمرير */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* ظل أوضح عند التمرير */
+}
+
+.contact-card .icon {
+  font-size: 40px;             /* حجم الأيقونة */
+  margin-bottom: 5px;          /* مسافة تحت الأيقونة */
+  display: block;              /* لجعل الأيقونة تأخذ سطرها الخاص */
+}
+
+.contact-card h3 {
+  font-size: 14px;             /* حجم عنوان الكارد */
+  margin-bottom: 4px;          /* مسافة تحت العنوان */
+  color: #2c3e50;              /* لون العنوان */
+}
+
+.contact-card p {
+  font-size: 12px;             /* حجم نص الكارد */
+  color: #555;                 /* لون نص الكارد */
+}
+
+/* تنسيقات استجابة الموبايل (داخل media query) - مهمة جداً لـ contact-info */
+@media (max-width: 768px) { 
+  .contact-info { 
+    width: 100%;             /* تظل 100% على الموبايل */
+    padding: 20px 10px;      /* بادينج أقل على الموبايل */
+  }
+
+  .contact-methods-container {
+    flex-direction: row;     /* يمكن أن تظل أفقية على الموبايل */
+    justify-content: center;
+    gap: 8px;                /* مسافة أقل بين الكروت على الموبايل */
+  }
+
+  .contact-card {
+    width: 80px;             /* تصغير الكارد أكثر على الموبايل لتناسب الصف الواحد */
+    min-width: 70px;
+    max-width: 90px;
+    padding: 8px;            /* بادينج أقل على الموبايل */
+  }
+
+  .contact-card .icon {
+    font-size: 25px;         /* تصغير الأيقونة على الموبايل */
+  }
+
+  .contact-card h4 {
+    font-size: 12px;         /* تصغير العنوان على الموبايل */
+  }
+
+  .contact-card p {
+    font-size: 10px;         /* تصغير النص على الموبايل */
+  }
+}
+
+
+
+
+
+
+
+
+
+
