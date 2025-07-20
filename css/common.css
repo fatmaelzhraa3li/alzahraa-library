@@ -1,0 +1,68 @@
+/* تنسيقات موجوده بمل صفحه  */
+/* الهيدر والنافيجيشن */
+header {
+  background-color: #3b4c66;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #f2f3f5;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+  color: #3b4c66;
+  border-color: #3b4c66;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f2f3f5;
+  direction: rtl;
+}
+
+
+
+
+footer {
+  background-color: #3b4c66;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  margin-top: 50px;
+}
+footer p {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+} 
+
+
+
+
+
+
