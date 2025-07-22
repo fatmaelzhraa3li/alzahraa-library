@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> Alzahraa Library</title>
   <link rel="stylesheet" href="css/common.css" />
-  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/favorites.css" />
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
+  
+  
+  
 </head>
 <body>
 
@@ -26,32 +32,31 @@
   </header>
   
   
-<!-- Section تحتوي على المقال وشريط البحث -->
-<section class="about-search">
-  <div class="about">
-    <h2>😇 Hello my friend </h2>
-    <h4>Find the best English books here! Browse our big collection and easily pick your favorite. We have books for all tastes and topics you're looking for. Start your enjoyable reading journey now with Al zahraa Library!</h4>
-  </div>
-  <div class="about-image">
-    <img src="images/book.jpg" alt="no photo" />
-  </div>
-  <div class="search">
-    <input type="text" id="searchInput" placeholder="  search for a book ...">
-    <button onclick="searchBooks()">search</button>
-  </div>
-</section>
-<h3 class="container-heading">suggested books</h3> 
-  <div class="container">
-    <!-- Main: عرض الكتب المقترحة من API -->
-    <main id="booksContainer">
-        <!--الكتب هتظهر هنا من جافا سكريبت -->
-    </main>
-  </div>
+  
+  
+  
+<main class="main-content container">
+  <h1 class="page-title">Your favorites</h1>
+  
+  <section class="empty-favorites-section">
+    <i class="far fa-heart empty-icon"></i>
+    <h2>Your favorites list is empty!</h2>
+    <p>Browse our wide selection of books and add what you like to find it here later.</p>
+    <a href="sections.html" class="btn btn-primary">Browse Books Now</a>
+  </section>
+  
+  <section class="favorites-list-container" style="display: none;">
+  </section>
+</main>
+
+
+  
+  
+  
+  
 <footer>
   <p>  All rights reserved &copy; Alzahraa Library 2025</p>
 </footer>
   <script src="js/script.js"></script>
 </body>
 </html>
-
-

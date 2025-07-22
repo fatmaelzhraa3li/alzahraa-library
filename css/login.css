@@ -1,0 +1,166 @@
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px; /* زوايا أكثر استدارة */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* ظل أعمق وأكثر نعومة */
+    width: 100%;
+    max-width: 420px; /* عرض أوسع قليلاً ليناسب التصميم */
+    box-sizing: border-box; /* لضمان أن البادينغ والحدود لا تزيد عن العرض الكلي */
+}
+
+h2 {
+    color: #333; /* لون أغمق للعنوان */
+    text-align: center; /* توسيط العنوان */
+    margin-bottom: 35px; /* مسافة أكبر أسفل العنوان */
+    font-size: 2.2em; /* حجم أكبر للعنوان */
+    font-weight: 700; /* خط سميك للعنوان */
+}
+
+.input-group {
+    margin-bottom: 25px; /* مسافة أكبر بين مجموعات الإدخال */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px; /* مسافة أكبر أسفل التسمية */
+    color: #555; /* لون رمادي أغمق للتسمية */
+    font-weight: 500; /* خط متوسط السمك */
+    font-size: 0.95em;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex; /* لترتيب الأيقونة وحقل الإدخال في سطر واحد */
+    align-items: center; /* محاذاة رأسية */
+    border: 1px solid #ddd; /* حدود أفتح */
+    border-radius: 8px; /* زوايا مستديرة لحقل الإدخال ككل */
+    padding-left: 15px; /* مسافة للأيقونة */
+    background-color: #f8f8f8; /* خلفية خفيفة */
+    transition: all 0.3s ease;
+}
+
+.input-with-icon:focus-within {
+    border-color: #7C5DD4; /* تغيير لون الحدود عند التركيز */
+    box-shadow: 0 0 0 3px rgba(124, 93, 212, 0.2); /* ظل عند التركيز */
+}
+
+.input-with-icon .icon {
+    color: #888; /* لون الأيقونة */
+    font-size: 1.1em;
+    margin-right: 10px; /* مسافة بين الأيقونة والإدخال */
+}
+
+.input-with-icon input {
+    flex-grow: 1; /* لجعل حقل الإدخال يملأ المساحة المتبقية */
+    border: none; /* إزالة الحدود الداخلية لحقل الإدخال */
+    padding: 12px 0; /* بادينغ رأسي فقط */
+    font-size: 1em;
+    background-color: transparent; /* خلفية شفافة */
+    outline: none; /* إزالة الخط الأزرق عند التركيز */
+    color: #333;
+}
+
+.input-with-icon input::placeholder {
+    color: #bbb; /* لون البليس هولدر */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.1em;
+    transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #555;
+}
+
+/* خيارات تذكرني ونسيت كلمة المرور */
+.options-group {
+    display: flex;
+    justify-content: space-between; /* توزيع العناصر على الجانبين */
+    align-items: center;
+    margin-bottom: 30px; /* مسافة أسفل المجموعة */
+    font-size: 0.95em;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-left: 8px; /* مسافة بين الصندوق والنص */
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.forgot-password-link {
+    color: #7C5DD4; /* نفس اللون الأرجواني الأساسي */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    color: #AC96EA;
+    text-decoration: underline;
+}
+
+/* زر تسجيل الدخول */
+.sign-in-btn {
+    background-color: #1a1a1a; /* لون أسود غامق */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px; /* زوايا مستديرة أكثر */
+    cursor: pointer;
+    font-size: 1.2em; /* حجم أكبر للخط */
+    font-weight: bold; /* خط سميك */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف للزر */
+}
+
+.sign-in-btn:hover {
+    background-color: #333; /* لون أغمق عند التمرير */
+    transform: translateY(-2px); /* تأثير بسيط عند التمرير */
+}
+
+/* جزء "لا تملك حساب؟" Sign Up */
+.signup-prompt {
+    margin-top: 30px; /* مسافة من زر تسجيل الدخول */
+    text-align: center;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.signup-prompt a {
+    color: #7C5DD4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-prompt a:hover {
+    color: #AC96EA;
+    text-decoration: underline;
+}
+
+.message {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #dc3545;
+    text-align: center; /* توسيط رسالة الخطأ/النجاح */
+}
+
+.message.success {
+    color: #28a745;
+}
+
+
+

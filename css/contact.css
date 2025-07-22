@@ -1,6 +1,6 @@
 /*تكملة تنسيقات صفحه contact.html */
 .form-contact{
-    background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+    
     padding: 20px 0 20px;
     margin-top: 80px;
     margin-bottom: 20px;
@@ -22,7 +22,8 @@
     margin-right: auto;
     margin-bottom: 20px;
     height: 350px;
-    background: linear-gradient(145deg, #f5f6f7, #e1e4e8);
+    background: #7C5DD4;
+    
     padding: 40px 40px 40px 70px;
     border-radius: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -56,8 +57,8 @@
   
   
   form button {
-    background: #506180;
-    color: white;
+    background: white;
+    color: #7C5DD4;
     border: none;
     display: block;
     width: 30%;                 
@@ -87,7 +88,7 @@
 .contact-info {
     width: 100%;                 /* تأخذ عرض الصفحة بالكامل */
     margin-top: 50px;           /* هامش علوي وسفلي 20px وتوسيط أفقي */
-    background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
+    background-color: #7C5DD4;
     padding: 30px 0 50px;          /* بادينج رأسي 40px وأفقي 20px */
     border-radius: 0;            /* زوايا حادة */
     box-shadow: none;            /* لا يوجد ظل */
@@ -107,11 +108,14 @@
     margin-top: 20px;            /* مسافة من أعلى الحاوية */
   }
   /* الكروت الفردية - تم تصغير حجمها أكثر */
+  
+  
+  
   .contact-card {
     flex: 0 0 auto;              /* يمنع النمو والتقلص التلقائي للكارد، ويستخدم العرض المحدد */
     width: 140px;                /* عرض ثابت للكارد */
     padding: 20px 0 20px;
-    background: linear-gradient(145deg, #f5f6f7, #e1e4e8);
+    background-color: white;
     padding: 20px;               /* بادينج داخلي أصغر */
     border-radius: 8px;          /* زوايا دائرية */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف */
@@ -135,7 +139,7 @@
   
   .contact-info h1 {
     margin: 0px;         /* مسافة تحت عنوان معلومات التواصل */
-    color: black;              /* لون العنوان */
+    color: black;
     font-size: 24px;             /* حجم العنوان */
   }
   

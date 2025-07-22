@@ -1,7 +1,8 @@
+console.log("Script loaded");
 document.addEventListener("DOMContentLoaded", () => {
   const booksContainer = document.getElementById("booksContainer");
   
-  fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+  fetch("data.json")
     .then(response => {
       if (!response.ok) throw new Error("فشل تحميل البيانات");
       return response.json();

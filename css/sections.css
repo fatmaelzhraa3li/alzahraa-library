@@ -1,0 +1,373 @@
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title-section {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.page-title-section h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* تنسيقات قسم الفئات */
+.categories-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.categories-section h3 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column; /* لجعل الفئات تظهر تحت بعضها */
+}
+
+.category-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1em;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none; /* إزالة خط تحت الروابط */
+    /* التعديلات الجديدة للأيقونات */
+    display: flex; /* لجعل الأيقونة والنص في سطر واحد */
+    align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
+    gap: 10px; /* مسافة بين الأيقونة والنص */
+}
+
+.category-item i {
+    font-size: 1.2em; /* حجم أكبر قليلاً للأيقونة */
+    color: #007bff; /* لون مميز للأيقونات */
+}
+
+.category-item span {
+    /* يمكنك إضافة تنسيقات خاصة للنص هنا إذا أردت */
+}
+
+.category-item:last-child {
+    border-bottom: none; /* إزالة الحد السفلي للعنصر الأخير */
+}
+
+.category-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* تنسيقات أقسام الكتب الفردية */
+.book-section {
+    
+    background-color: white;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+}
+
+.section-title {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 15px; /* تقليل الهامش السفلي قليلاً */
+    border-bottom: 1px solid #e0e0e0; /* خط رمادي فاتح وأرفع */
+    padding-bottom: 5px; /* تقليل الحشو السفلي قليلاً */
+    
+    /* التعديلات الأساسية لجعل الخط يمتد والعناصر تتوزع */
+    display: flex; /* يجعل العناصر داخل h3 مرتبة في سطر واحد */
+    justify-content: space-between; /* يدفع العنصر الأول (العنوان) لليسار والعنصر الثاني (العدد) لليمين */
+    align-items: center; /* لمحاذاة العناصر رأسياً في المنتصف */
+    width: 100%; /* يجعل الحد السفلي يمتد على عرض 100% من الحاوية الأبوية */
+    line-height: 1.2;
+}
+
+
+/* تنسيقات عدد الكتب */
+.book-count {
+    font-size: 0.8em; /* حجم أصغر لعدد الكتب */
+    color: #999; /* لون رمادي لعدد الكتب */
+    font-weight: normal; /* خط عادي لعدد الكتب */
+    white-space: nowrap; /* يمنع النص من الالتفاف */
+    margin-left: 10px; /* مسافة بين العنوان والعدد */
+    padding-bottom: 0; /* إزالة أي حشو سفلي */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.books-container {
+    display: flex; /* لعرض البطاقات بشكل أفقي */
+    overflow-x: auto; /* لتمكين التمرير الأفقي إذا كان هناك العديد من الكتب */
+    gap: 20px; /* المسافة بين البطاقات */
+    padding-bottom: 15px; /* مسافة للظل أو شريط التمرير */
+    -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
+}
+
+/* إخفاء شريط التمرير الافتراضي ولكن السماح بالتمرير */
+.books-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.books-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.books-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.books-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* تنسيقات بطاقة الكتاب الواحدة */
+.book-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px; /* لتحديد عرض البطاقة في التمرير الأفقي */
+    max-width: 220px; /* أقصى عرض للبطاقة */
+    flex-shrink: 0; /* لمنع البطاقات من الانكماش */
+}
+
+.book-card:hover {
+    transform: translateY(-5px); /* تأثير رفع البطاقة عند المرور بالماوس */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.book-cover {
+    width: 100%;
+    height: 180px; /* ارتفاع ثابت لصور الغلاف */
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشوه */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.book-info {
+    padding: 15px;
+    flex-grow: 1; /* للسماح لمعلومات الكتاب بأخذ المساحة المتبقية */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* لتوزيع المحتوى عموديا */
+}
+
+.book-title {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: 600;
+    white-space: nowrap; /* منع النص من الالتفاف */
+    overflow: hidden; /* إخفاء النص الزائد */
+    text-overflow: ellipsis; /* إضافة نقاط (...) للنص الزائد */
+}
+
+.book-author {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-price {
+    font-size: 1em;
+    color: #28a745; /* لون أخضر جذاب للسعر */
+    font-weight: bold;
+    margin-top: auto; /* لدفع السعر للأسفل */
+}
+
+.card-actions {
+    padding: 10px 15px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between; /* توزيع الزر والأيقونة */
+    align-items: center;
+    gap: 10px;
+}
+
+.add-to-cart-btn {
+    background-color: #007bff; /* أزرق مميز */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    flex-grow: 1; /* لجعل الزر يأخذ معظم المساحة */
+    font-weight: 500;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4em; /* حجم أكبر لأيقونة القلب */
+    color: #ccc; /* لون رمادي افتراضي للقلب غير المفضل */
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0 5px;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1); /* تكبير الأيقونة عند المرور عليها */
+}
+
+/* حالة القلب عندما يكون مفضلاً */
+.favorite-btn.favorited .fa-heart {
+    color: #ff4d4d; /* لون أحمر زاهي عند التفضيل */
+}
+
+
+/* تنسيقات الاستجابة (Responsive Design) */
+@media (max-width: 768px) {
+    /* لا توجد header-bottom هنا، لكن تركتها لضمان التوافق */
+    .header-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header nav ul {
+        justify-content: center;
+        gap: 15px;
+    }
+    .page-title-section h2 {
+        font-size: 2em;
+    }
+    .categories-section {
+        padding: 15px;
+    }
+    .category-item {
+        font-size: 1em;
+        padding: 10px 12px;
+    }
+    .section-title {
+        font-size: 1.7em;
+    }
+    .books-container {
+        gap: 15px;
+    }
+    .book-card {
+        min-width: 180px;
+        max-width: 200px;
+    }
+    .book-cover {
+        height: 160px;
+    }
+    .book-title {
+        font-size: 1em;
+    }
+    .book-author {
+        font-size: 0.8em;
+    }
+    .book-price {
+        font-size: 0.95em;
+    }
+    .add-to-cart-btn {
+        padding: 7px 10px;
+        font-size: 0.85em;
+    }
+    .favorite-btn {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* لا توجد header-top/logo/nav هنا، لكن تركتها لضمان التوافق */
+    .header-top {
+        font-size: 0.75em;
+        padding: 3px 10px;
+    }
+    .logo {
+        font-size: 1.2em;
+    }
+    .logo img {
+        height: 30px;
+        width: 30px;
+    }
+    header nav ul {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+    main {
+        padding: 10px;
+    }
+    .page-title-section h2 {
+        font-size: 1.8em;
+    }
+    .categories-section {
+        padding: 10px;
+    }
+    .category-item {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+    .section-title {
+        font-size: 1.5em;
+    }
+    .books-container {
+        gap: 10px;
+    }
+    .book-card {
+        min-width: 150px;
+        max-width: 170px;
+    }
+    .book-cover {
+        height: 140px;
+    }
+    .book-info {
+        padding: 10px;
+    }
+    .book-title {
+        font-size: 0.9em;
+    }
+    .book-author {
+        font-size: 0.75em;
+    }
+    .book-price {
+        font-size: 0.85em;
+    }
+    .add-to-cart-btn {
+        padding: 6px 8px;
+        font-size: 0.8em;
+    }
+    .favorite-btn {
+        font-size: 1.1em;
+    }
+}
