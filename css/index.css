@@ -1,45 +1,46 @@
 /*تكملة تنسيقات صفحه index.html */
   
 .about-search {
+    border-top: 1px solid #e0e0e0; /* خط رمادي فاتح وأرفع */
     background: #7C5DD4;
-    background-image: url(images/book.jpg);
+    background-image: url(../images/book.jpg);
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: right top;
     color: white;
-    padding: 30px 0 60px;
-    margin-top: 50px;
+    padding: 30px 0 150px;
+    
     display: flex; /* تم التغيير إلى flexbox للتخطيط */
     align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
-    justify-content: space-around; /* توزيع المساحة بين العناصر */
+    justify-content: flex-start; /* توزيع المساحة بين العناصر */
     flex-wrap: wrap; /* يسمح للعناصر بالالتفاف إلى السطر التالي على الشاشات الأصغر */
 }
   
 .about {
-    width: 45%; /* عرض مخفض قليلاً لإفساح المجال للصورة */
+    width: 50%; /* عرض مخفض قليلاً لإفساح المجال للصورة */
+    margin-top: 50px;
+    padding-left: 20px;
     text-align: left; /* يضمن محاذاة النص إلى اليسار */
 }
+ 
 
-.about-image {
-    width: 45%; /* تخصيص مساحة للصورة */
-    text-align: right; /* محاذاة الصورة إلى اليمين داخل حاويتها */
-}
 
-.about-image img {
-    max-width: 100%; /* يضمن أن تكون الصورة متجاوبة ولا تتدفق */
-    height: auto; /* يحافظ على نسبة العرض إلى الارتفاع */
-    border-radius: 8px; /* اختياري: يضيف استدارة طفيفة لزوايا الصورة */
-}
+
   
 .search {
     margin-top: 20px;
     display: flex;
     gap: 10px; 
     width: 90%; /* جعل شريط البحث يمتد أوسع */
-    justify-content: center; /* توسيط حقل البحث والزر */
+    justify-content: flex-start; /* توسيط حقل البحث والزر */
+    padding-left: 20px;
 }
   
 .search input {
     color: #7C5DD4;
     background-color: #f2f3f5;
-    padding: 8px;
+    padding: 10px;
+    margin-top: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     flex-grow: 1; /* يسمح لحقل الإدخال بأخذ المساحة المتاحة */
@@ -48,7 +49,9 @@
   
 .search button {
     font-size: 20px;
-    padding: 8px 12px;
+    padding: 10px;
+    margin-top: 15px;
+    
     background-color: white;
     color: #7C5DD4;
     border: none;

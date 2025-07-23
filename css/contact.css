@@ -20,11 +20,11 @@
     width: 35%;                 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     height: 350px;
     background: #7C5DD4;
     
-    padding: 40px 40px 40px 70px;
+    padding: 40px 40px 50px ;
     border-radius: 10px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   }

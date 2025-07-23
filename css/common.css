@@ -3,8 +3,12 @@
 header {
   background-color: #7C5DD4;
   color: white;
+  position: sticky;
+  top: 0; /* هذا السطر مهم جداً */
+  z-index: 1000; /* قيمة عالية لضمان الظهور فوق العناصر الأخرى */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
   margin: 0px;
-  padding: 0px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,23 +21,65 @@ nav ul {
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+  margin: 0; /* تأكد من إزالة أي هامش افتراضي */
+  padding: 0; /* تأكد من إزالة أي حشوة افتراضية */
 }
 
 nav a {
   display: inline-block;
   padding: 5px 10px;
   color: #f2f3f5;
-  text-decoration: none;
-  border-radius: 8px;
+  text-decoration: none; /* مهم لإزالة الخط الافتراضي */
+  border-radius: 8px; /* ممكن تحتفظ بيها لو حبيت شكل الأطراف المدورة */
   font-weight: bold;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  
+  /* الجزء الخاص بالخط السفلي الشفاف في الحالة العادية */
+  border-bottom: 2px solid transparent; 
+  /* انتقال سلس للخط واللون */
+  transition: border-bottom 0.3s ease, color 0.3s ease; 
+  
+  /* لإزالة الظل الأزرق عند التركيز (Focus) */
+  outline: none; 
 }
 
+/* لما الماوس يجي على اللينك (Hover) */
 nav a:hover {
-  background: linear-gradient(135deg, #d3d9e0, #bbc3cc);
-  color: #3b4c66;
-  border-color: #3b4c66;
+  /* تفعيل الخط الأبيض */
+  border-bottom-color: white; 
+  /* تأكيد أن لون النص أبيض */
+  color: white; 
+  /* إزالة أي خلفية أو حدود أخرى لو كانت موجودة */
+  background: none;
+  border-color: transparent;
+}
+
+/* لما تضغط على اللينك فعلاً (Active) */
+nav a:active {
+  /* تفعيل الخط الأبيض */
+  border-bottom-color: white; 
+  /* تأكيد أن لون النص أبيض */
+  color: white; 
+  /* إزالة أي خلفية أو حدود أخرى لو كانت موجودة */
+  background: none;
+  border-color: transparent;
+}
+
+/* هذا الجزء اختياري وموصى به لتحسين إمكانية الوصول:
+   يظهر الخط الأبيض أيضاً عندما يتم التركيز على اللينك باستخدام لوحة المفاتيح (Tab) */
+nav a:focus {
+  border-bottom-color: white; 
+  color: white;
+  background: none;
+  border-color: transparent;
+}
+
+/* لو عايز اللينك بتاع الصفحة اللي أنت واقف عليها حاليًا يفضل ظاهر تحته الخط الأبيض */
+/* لازم تضيف الكلاس 'active-link' للينك ده في الـ HTML يدوياً */
+nav a.active-link {
+  border-bottom-color: white;
+  color: white;
+  background: none;
+  border-color: transparent;
 }
 
 
