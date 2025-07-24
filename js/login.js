@@ -1,83 +1,104 @@
+// js/login.js
+
 document.addEventListener('DOMContentLoaded', () => {
+    // جلب العناصر الأساسية من الـ DOM
     const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email'); // تم تغييرها من username
+    const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const messageDisplay = document.getElementById('message');
-    const togglePassword = document.getElementById('togglePassword'); // لأيقونة العين
-    const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-    const signUpLink = document.getElementById('signUpLink');
+    const togglePassword = document.getElementById('togglePassword');
+    const rememberMeCheckbox = document.getElementById('rememberMe');
+    const messageDisplay = document.getElementById('message'); // العنصر اللي هنعرض فيه الرسائل
+    const googleSignInBtn = document.getElementById('googleSignInBtn'); // الزر الجديد لجوجل
 
-    // --- منطق نموذج تسجيل الدخول الرئيسي ---
-    loginForm.addEventListener('submit', async (event) => {
-        event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+    // رابط الـ API اللي فيه بيانات المستخدمين
+    const API_URL = 'https://edu-me01.github.io/Json-Data/Digital-Library.json';
 
-        const email = emailInput.value; // تم تغييرها من username
-        const password = passwordInput.value;
+    // --- وظيفة "Remember Me" (تذكرني) ---
+    // عند تحميل الصفحة، نتحقق إذا كان فيه إيميل محفوظ
+    if (localStorage.getItem('rememberedEmail')) {
+        emailInput.value = localStorage.getItem('rememberedEmail');
+        rememberMeCheckbox.checked = true; // نعلم على "تذكرني" لو كان فيه إيميل محفوظ
+    }
 
-        messageDisplay.textContent = ''; // مسح أي رسائل سابقة
-        messageDisplay.className = 'message'; // إعادة تعيين الفئة للتنسيق
+    // --- وظيفة إظهار/إخفاء كلمة المرور ---
+    togglePassword.addEventListener('click', () => {
+        // تبديل نوع حقل كلمة المرور بين 'password' و 'text'
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        // تبديل أيقونة العين بين 'eye' و 'eye-slash'
+        togglePassword.classList.toggle('fa-eye');
+        togglePassword.classList.toggle('fa-eye-slash');
+    });
+
+    // --- التعامل مع إرسال نموذج تسجيل الدخول (بالإيميل وكلمة المرور) ---
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // منع الإرسال الافتراضي للنموذج (إعادة تحميل الصفحة)
+
+        // جلب القيم المدخلة
+        const email = emailInput.value.trim(); // .trim() لإزالة المسافات البيضاء الزائدة
+        const password = passwordInput.value.trim();
+
+        // عرض رسالة "جاري التحقق..."
+        messageDisplay.textContent = 'Verifying credentials...';
+        messageDisplay.className = 'message'; // لإزالة أي كلاسات سابقة (مثل 'error' أو 'success')
 
         try {
-            // جلب بيانات المستخدم من ملف data.json
-            const response = await fetch('data.json');
+            // جلب بيانات المستخدمين من الـ API
+            const response = await fetch(API_URL);
             if (!response.ok) {
+                // إذا كان هناك مشكلة في استجابة الـ API (مثل 404 أو 500)
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const users = await response.json();
+            const data = await response.json(); // تحويل الاستجابة إلى JSON
 
-            // التحقق من بيانات المستخدم
-            // هنا، سنبحث عن 'username' في ملف JSON وكأنه الإيميل.
-            // الأفضل أن تكون المفاتيح في JSON متطابقة (أي 'email' بدلاً من 'username').
-            const foundUser = users.find(user => 
-                user.username === email && user.password === password
-            );
+            // البحث عن المستخدم بالإيميل وكلمة المرور في بيانات الـ API
+            // نفترض أن الـ API يرجع مصفوفة من المستخدمين، وكل مستخدم له 'email' و 'password'
+            const foundUser = data.users.find(user => user.email === email && user.password === password);
 
             if (foundUser) {
-                messageDisplay.textContent = 'Login successful!';
-                messageDisplay.classList.add('success');
-                // في تطبيق حقيقي، سيتم إعادة التوجيه هنا:
-                // window.location.href = 'dashboard.html';
-                console.log('User logged in:', email);
-                emailInput.value = '';
-                passwordInput.value = '';
+                // تسجيل الدخول ناجح
+                messageDisplay.textContent = 'Login successful! Redirecting...';
+                messageDisplay.className = 'message success'; // إضافة كلاس للرسائل الناجحة (ممكن تنسيقه بالـ CSS)
+
+                // --- التعامل مع "Remember Me" ---
+                if (rememberMeCheckbox.checked) {
+                    localStorage.setItem('rememberedEmail', email); // حفظ الإيميل إذا تم اختيار "تذكرني"
+                } else {
+                    localStorage.removeItem('rememberedEmail'); // مسح الإيميل إذا لم يتم اختيار "تذكرني"
+                }
+
+                // حفظ حالة تسجيل الدخول (مثلاً، لتحديد إذا كان المستخدم مسجل دخول أو لا)
+                // ممكن تخزين الـ user ID أو أي بيانات للمستخدم في localStorage أو sessionStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('currentUserEmail', email); // مثال: حفظ إيميل المستخدم الحالي
+
+                // إعادة توجيه المستخدم لصفحة الـ Home بعد ثانية واحدة (لإظهار رسالة النجاح)
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+
             } else {
-                messageDisplay.textContent = 'Invalid email or password.';
-                messageDisplay.classList.add('error');
+                // بيانات الدخول غير صحيحة
+                messageDisplay.textContent = 'Invalid email or password. Please try again.';
+                messageDisplay.className = 'message error'; // إضافة كلاس للرسائل الخطأ
             }
+
         } catch (error) {
-            console.error('Error fetching or parsing user data:', error);
-            messageDisplay.textContent = 'An error occurred. Please try again.';
-            messageDisplay.classList.add('error');
+            // التعامل مع أي أخطاء تحدث أثناء جلب البيانات أو معالجتها
+            console.error('Login error:', error);
+            messageDisplay.textContent = 'An error occurred. Please try again later.';
+            messageDisplay.className = 'message error';
         }
     });
 
-    // --- وظيفة إظهار/إخفاء كلمة المرور ---
-    if (togglePassword) { // التأكد من وجود الأيقونة قبل إضافة المستمع
-        togglePassword.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            // تغيير أيقونة العين
-            togglePassword.classList.toggle('fa-eye');
-            togglePassword.classList.toggle('fa-eye-slash');
-        });
-    }
-
-    // --- عنصر نائب لنسيت كلمة المرور ---
-    if (forgotPasswordLink) {
-        forgotPasswordLink.addEventListener('click', (event) => {
-            event.preventDefault(); // منع سلوك الرابط الافتراضي
-            alert('Forgot Password functionality would send a reset link to your email! (Requires backend support)');
-        });
-    }
-
-    // --- عنصر نائب للتسجيل (Sign Up) ---
-    if (signUpLink) {
-        signUpLink.addEventListener('click', (event) => {
-            event.preventDefault(); // منع سلوك الرابط الافتراضي
-            alert('Sign Up functionality would take you to a registration page! (Requires backend to create new users)');
-        });
-    }
+    // --- التعامل مع زر "Sign in with Google Account" ---
+    googleSignInBtn.addEventListener('click', () => {
+        messageDisplay.textContent = 'You clicked "Sign in with Google Account". (Actual Google Sign-In requires API integration)';
+        messageDisplay.className = 'message'; // يمكنك تغيير اللون إذا أردتِ
+        // في هذه النقطة، ستقومين بدمج كود Google Sign-In API الفعلي
+        // على سبيل المثال:
+        // window.location.href = 'YOUR_GOOGLE_AUTH_URL';
+        // أو استخدام مكتبة Google Identity Services
+        console.log('Initiating Google Sign-In process...');
+    });
 });
-
-
-

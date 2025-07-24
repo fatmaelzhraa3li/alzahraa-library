@@ -1,373 +1,335 @@
+/* تنسيقات خاصة
 main {
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto; /* مسافة من أعلى وأسفل */
+    background-color: #fcfcfc; /* خلفية خفيفة للمحتوى الرئيسي */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
+/* تنسيقات عنوان الصفحة */
 .page-title-section {
     text-align: center;
     margin-bottom: 30px;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    border-bottom: 2px solid #e0e0e0; /* خط سفلي سميك وواضح */
 }
 
 .page-title-section h2 {
-    font-size: 2.5em;
-    color: #2c3e50;
+    font-size: 2.8em; /* حجم أكبر للعنوان */
+    color: #7C5DD4; /* لون مميز يتماشى مع الثيم */
     margin: 0;
+    font-weight: 700;
 }
 
-/* تنسيقات قسم الفئات */
+/* تنسيقات قسم الفئات (Categories) */
 .categories-section {
-    background-color: #E5DEFA;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: #E5DEFA; /* لون خلفية للقسم */
+    border: 1px solid #dcdcdc; /* حد خفيف */
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 40px; /* مسافة أكبر أسفل القسم */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .categories-section h3 {
-    font-size: 1.6em;
-    color: #2c3e50;
+    font-size: 1.8em;
+    color: #7C5DD4; /* لون العنوان يتماشى مع الثيم */
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center; /* توسيط العنوان */
 }
 
 .categories-list {
     display: flex;
-    flex-direction: column; /* لجعل الفئات تظهر تحت بعضها */
+    flex-wrap: wrap; /* للسماح بالالتفاف في الشاشات الصغيرة */
+    justify-content: center; /* توسيط عناصر القائمة */
+    gap: 15px; /* مسافة بين الفئات */
 }
 
 .category-item {
-    padding: 12px 15px;
-    border-bottom: 1px solid white;
+    background-color: #fff; /* خلفية بيضاء للعنصر */
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 12px 20px;
     font-size: 1.1em;
     color: #555;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-decoration: none; /* إزالة خط تحت الروابط */
-    /* التعديلات الجديدة للأيقونات */
-    display: flex; /* لجعل الأيقونة والنص في سطر واحد */
-    align-items: center; /* لمحاذاة الأيقونة والنص عمودياً */
-    gap: 10px; /* مسافة بين الأيقونة والنص */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .category-item i {
-    font-size: 1.2em; /* حجم أكبر قليلاً للأيقونة */
-    color: #007bff; /* لون مميز للأيقونات */
-}
-
-.category-item span {
-    /* يمكنك إضافة تنسيقات خاصة للنص هنا إذا أردت */
-}
-
-.category-item:last-child {
-    border-bottom: none; /* إزالة الحد السفلي للعنصر الأخير */
+    font-size: 1.3em; /* حجم أكبر للأيقونة */
+    color: #7C5DD4; /* لون الأيقونة يتماشى مع الثيم */
 }
 
 .category-item:hover {
     background-color:#F8F6FC;
+    transform: translateY(-2px); /* تأثير رفع بسيط */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* تنسيقات أقسام الكتب الفردية */
 .book-section {
-    
-    background-color: #E5DEFA;
+    background-color: #E5DEFA; /* لون خلفية للقسم */
     margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .section-title {
-    font-size: 2em;
-    color: #2c3e50;
-    margin-bottom: 15px; /* تقليل الهامش السفلي قليلاً */
-    border-bottom: 1px solid white; /* خط رمادي فاتح وأرفع */
-    padding-bottom: 5px; /* تقليل الحشو السفلي قليلاً */
-    
-    /* التعديلات الأساسية لجعل الخط يمتد والعناصر تتوزع */
-    display: flex; /* يجعل العناصر داخل h3 مرتبة في سطر واحد */
-    justify-content: space-between; /* يدفع العنصر الأول (العنوان) لليسار والعنصر الثاني (العدد) لليمين */
-    align-items: center; /* لمحاذاة العناصر رأسياً في المنتصف */
-    width: 100%; /* يجعل الحد السفلي يمتد على عرض 100% من الحاوية الأبوية */
-    line-height: 1.2;
+    font-size: 2.2em; /* حجم أكبر للعنوان */
+    color: #7C5DD4; /* لون العنوان يتماشى مع الثيم */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #fff; /* خط سفلي أبيض سميك */
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
 }
-
 
 /* تنسيقات عدد الكتب */
 .book-count {
-    font-size: 0.8em; /* حجم أصغر لعدد الكتب */
-    color: #999; /* لون رمادي لعدد الكتب */
-    font-weight: normal; /* خط عادي لعدد الكتب */
-    white-space: nowrap; /* يمنع النص من الالتفاف */
-    margin-left: 10px; /* مسافة بين العنوان والعدد */
-    padding-bottom: 0; /* إزالة أي حشو سفلي */
+    font-size: 0.7em; /* حجم أصغر لعدد الكتب */
+    color: #999;
+    font-weight: normal;
+    white-space: nowrap;
+    margin-left: 10px;
+    padding-bottom: 0;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* الحاوية الرئيسية اللي بتحوي كل الكروت */
 .books-container {
-    display: flex; /* لعرض البطاقات بشكل أفقي */
-    overflow-x: auto; /* لتمكين التمرير الأفقي إذا كان هناك العديد من الكتب */
-    gap: 20px; /* المسافة بين البطاقات */
-    padding-bottom: 15px; /* مسافة للظل أو شريط التمرير */
-    -webkit-overflow-scrolling: touch; /* لتحسين التمرير على iOS */
-}
-
-/* إخفاء شريط التمرير الافتراضي ولكن السماح بالتمرير */
-.books-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.books-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.books-container::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-}
-
-.books-container::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-
-/* تنسيقات بطاقة الكتاب الواحدة */
-.book-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px; /* مسافة بين الكروت */
+    justify-content: center; /* توسيط الكروت */
+    padding: 20px; /* padding داخلي للحاوية */
+    background-color: #f8f8f8; /* لون خلفية خفيف للحاوية */
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* ظل داخلي خفيف */
+    min-height: 200px; /* لضمان وجود ارتفاع حتى لو كانت فارغة */
+}
+
+/* كارت كل كتاب */
+.book-card {
+    width: 250px; /* حجم الكارت من index.css */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 200px; /* لتحديد عرض البطاقة في التمرير الأفقي */
-    max-width: 220px; /* أقصى عرض للبطاقة */
-    flex-shrink: 0; /* لمنع البطاقات من الانكماش */
+    transition: box-shadow 0.3s;
+    box-sizing: border-box;
+    display: flex; /* ترتيب المحتوى داخل الكارت عموديا */
+    flex-direction: column;
+    justify-content: space-between; /* يدفع الأزرار للأسفل */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف على الكارد */
 }
 
 .book-card:hover {
-    transform: translateY(-5px); /* تأثير رفع البطاقة عند المرور بالماوس */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* تأثير بسيط عند التمرير */
 }
 
-.book-cover {
-    width: 100%;
-    height: 180px; /* ارتفاع ثابت لصور الغلاف */
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشوه */
-    border-bottom: 1px solid #f0f0f0;
+/* تأكد من أن الصور داخل الكارد بتتعرض بشكل صحيح */
+.book-card img {
+  width: 100%;
+  height: 280px; /* ارتفاع ثابت للصور من index.css */
+  object-fit: contain; /* عشان الصورة كلها تظهر وماتتقصش */
+  background-color: #f0f0f0; /* خلفية فاتحة لو الصورة فيها شفافية */
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
+/* تنسيق معلومات الكتاب (العنوان، المؤلف، السعر) */
 .book-info {
-    padding: 15px;
-    flex-grow: 1; /* للسماح لمعلومات الكتاب بأخذ المساحة المتبقية */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* لتوزيع المحتوى عموديا */
+    flex-grow: 1; /* للسماح لها بأخذ المساحة المتاحة */
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.book-title {
+/* تنسيق العنوان عشان ما يبقاش كبير قوي */
+.book-title { /* كان h3 في index.css، هو h4 في HTML و sections.js */
     font-size: 1.1em;
     margin-bottom: 5px;
-    color: #2c3e50;
-    font-weight: 600;
-    white-space: nowrap; /* منع النص من الالتفاف */
+    color: #333;
+    white-space: nowrap; /* يمنع الكلمة من النزول سطر لوحدها */
     overflow: hidden; /* إخفاء النص الزائد */
-    text-overflow: ellipsis; /* إضافة نقاط (...) للنص الزائد */
+    text-overflow: ellipsis; /* إضافة نقاط لو النص اتقص */
+    font-weight: bold;
 }
 
 .book-author {
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* تنسيق جزء الفلوس (السعر) */
 .book-price {
-    font-size: 1em;
-    color: #28a745; /* لون أخضر جذاب للسعر */
+    font-size: 1.2em;
+    color: #7C5DD4; /* لون أرجواني للسعر ليتماشى مع الثيم */
     font-weight: bold;
-    margin-top: auto; /* لدفع السعر للأسفل */
-}
-
-.card-actions {
-    padding: 10px 15px;
-    border-top: 1px solid #f0f0f0;
-    display: flex;
-    justify-content: space-between; /* توزيع الزر والأيقونة */
-    align-items: center;
-    gap: 10px;
-}
-
-.add-to-cart-btn {
-    background-color: #007bff; /* أزرق مميز */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-    flex-grow: 1; /* لجعل الزر يأخذ معظم المساحة */
-    font-weight: 500;
-}
-
-.add-to-cart-btn:hover {
-    background-color: #0056b3;
-}
-
-.favorite-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.4em; /* حجم أكبر لأيقونة القلب */
-    color: #ccc; /* لون رمادي افتراضي للقلب غير المفضل */
-    transition: color 0.3s ease, transform 0.2s ease;
-    padding: 0 5px;
-}
-
-.favorite-btn:hover {
-    transform: scale(1.1); /* تكبير الأيقونة عند المرور عليها */
-}
-
-/* حالة القلب عندما يكون مفضلاً */
-.favorite-btn.favorited .fa-heart {
-    color: #ff4d4d; /* لون أحمر زاهي عند التفضيل */
+    display: block; /* لضمان أن السعر يأخذ سطرًا خاصًا به */
+    margin-top: 5px;
 }
 
 
-/* تنسيقات الاستجابة (Responsive Design) */
+/* تنسيق جديد لحاوية الأزرار داخل الكارد (الآن اسمها .actions) */
+.actions { /* تم تغيير .book-card .actions إلى .actions */
+  display: flex; /* لعرض الأزرار جنب بعضها */
+  justify-content: center; /* لتوسيط الأزرار */
+  gap: 10px; /* مسافة بين الأزرار */
+  margin-top: 15px; /* مسافة من أعلى */
+  width: 100%; /* لضمان أن الحاوية تأخذ عرض الكارد */
+}
+
+/* تنسيق زر Add to Cart (أو أي زر آخر) */
+.actions button { /* تم تغيير .book-card .actions button إلى .actions button */
+  font-size: 15px; /* حجم خط مناسب */
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* يمنع الكلمة من النزول سطر لوحدها */
+  flex-grow: 1; /* يسمح للزر يكبر ليملأ المساحة المتاحة لو في مساحة */
+  max-width: 120px; /* لتحديد أقصى عرض للزر */
+}
+
+.actions .add-to-cart-btn { /* تم تغيير .book-card .actions .add-to-cart-btn إلى .actions .add-to-cart-btn */
+  background-color: #7C5DD4;
+  color: white;
+  border: none;
+}
+
+.actions .add-to-cart-btn:hover {
+  background-color: #6a4ec7;
+}
+
+.actions .add-to-cart-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* تنسيق أيقونة/زر Favorite */
+.actions .favorite-btn { /* تم تغيير .book-card .actions .favorite-btn إلى .actions .favorite-btn */
+  background-color: #f0f0f0; /* خلفية فاتحة */
+  color: #7C5DD4; /* نفس لون الـ primary للمكتبة */
+  border: 1px solid #7C5DD4; /* بوردر بنفس اللون */
+  padding: 8px 10px; /* تعديل الـ padding للأيقونة */
+  font-size: 18px; /* حجم أكبر للأيقونة */
+  display: flex; /* لعرض الأيقونة والنص (لو فيه) جنب بعض */
+  align-items: center; /* توسيط عمودي */
+  justify-content: center; /* توسيط أفقي */
+  width: 40px; /* حجم ثابت للايقونة */
+  height: 40px; /* حجم ثابت للايقونة */
+  box-sizing: border-box; /* لضمان أن الـ padding والـ border مش هيزودوا الحجم */
+}
+
+.actions .favorite-btn:hover {
+  background-color: #7C5DD4;
+  color: white;
+}
+
+/* تنسيق خاص لأيقونة Favorite لو الكتاب في المفضلة (ممكن تضيفها بالـ JS) */
+.actions .favorite-btn.favorited {
+  color: red; /* لو عايز القلب يبقى أحمر مثلاً */
+  border-color: red;
+  background-color: red; /* لو عايز الخلفية حمراء لما يكون مفضل */
+  color: white; /* لون أيقونة القلب أبيض عندما يكون مفضل */
+}
+.actions .favorite-btn.favorited:hover {
+  background-color: #cc0000; /* أحمر أغمق عند التمرير وهو مفضل */
+}
+
+/* ---------------------------------------------------------------------- */
+/* استجابة للموبايل (Mobile Responsiveness) */
+/* ---------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    /* لا توجد header-bottom هنا، لكن تركتها لضمان التوافق */
-    .header-bottom {
+    header {
         flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .books-container {
+        justify-content: center; /* Centering cards on smaller screens */
+    }
+
+    .book-card {
+        width: 180px; /* Adjust card width for smaller screens */
+    }
+
+    .categories-list {
         gap: 10px;
     }
-    header nav ul {
-        justify-content: center;
-        gap: 15px;
-    }
-    .page-title-section h2 {
-        font-size: 2em;
-    }
-    .categories-section {
-        padding: 15px;
-    }
+
     .category-item {
-        font-size: 1em;
-        padding: 10px 12px;
+        padding: 8px 12px;
+        font-size: 0.9em;
     }
+
     .section-title {
-        font-size: 1.7em;
-    }
-    .books-container {
-        gap: 15px;
-    }
-    .book-card {
-        min-width: 180px;
-        max-width: 200px;
-    }
-    .book-cover {
-        height: 160px;
-    }
-    .book-title {
-        font-size: 1em;
-    }
-    .book-author {
-        font-size: 0.8em;
-    }
-    .book-price {
-        font-size: 0.95em;
-    }
-    .add-to-cart-btn {
-        padding: 7px 10px;
-        font-size: 0.85em;
-    }
-    .favorite-btn {
-        font-size: 1.2em;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
 @media (max-width: 480px) {
-    /* لا توجد header-top/logo/nav هنا، لكن تركتها لضمان التوافق */
-    .header-top {
-        font-size: 0.75em;
-        padding: 3px 10px;
-    }
-    .logo {
-        font-size: 1.2em;
-    }
-    .logo img {
-        height: 30px;
-        width: 30px;
-    }
-    header nav ul {
-        flex-direction: column;
-        gap: 8px;
-        align-items: center;
-    }
-    main {
-        padding: 10px;
-    }
-    .page-title-section h2 {
-        font-size: 1.8em;
-    }
-    .categories-section {
-        padding: 10px;
-    }
-    .category-item {
-        font-size: 0.9em;
-        padding: 8px 10px;
-    }
-    .section-title {
-        font-size: 1.5em;
-    }
-    .books-container {
-        gap: 10px;
-    }
     .book-card {
-        min-width: 150px;
-        max-width: 170px;
+        width: 140px; /* أصغر حجم ممكن للكارد على الشاشات الصغيرة جداً */
     }
-    .book-cover {
-        height: 140px;
-    }
-    .book-info {
-        padding: 10px;
-    }
+
     .book-title {
         font-size: 0.9em;
     }
+
     .book-author {
         font-size: 0.75em;
     }
+
     .book-price {
-        font-size: 0.85em;
-    }
-    .add-to-cart-btn {
-        padding: 6px 8px;
-        font-size: 0.8em;
-    }
-    .favorite-btn {
         font-size: 1.1em;
     }
+
+    .actions button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    .actions .favorite-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .categories-list {
+        flex-direction: column; /* Stack categories vertically on very small screens */
+        align-items: center;
+    }
 }
+

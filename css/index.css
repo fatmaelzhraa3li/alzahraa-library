@@ -116,33 +116,103 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   }
   
-  .book-card img {
+/* css/index.css */
+
+/* تأكد من أن الصور داخل الكارد بتتعرض بشكل صحيح */
+.book-card img {
+  width: 100%;
+  height: 280px; /* ارتفاع ثابت للصور */
+  object-fit: contain; /* عشان الصورة كلها تظهر وماتتقصش */
+  background-color: #f0f0f0; /* خلفية فاتحة لو الصورة فيها شفافية */
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* تنسيق جديد لحاوية الأزرار داخل الكارد */
+.book-card .actions {
+  display: flex; /* لعرض الأزرار جنب بعضها */
+  justify-content: center; /* لتوسيط الأزرار */
+  gap: 10px; /* مسافة بين الأزرار */
+  margin-top: 15px; /* مسافة من أعلى */
+}
+
+/* تنسيق زر Add to Cart (أو أي زر آخر) */
+.book-card .actions button {
+  font-size: 15px; /* حجم خط مناسب */
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* يمنع الكلمة من النزول سطر لوحدها */
+  flex-grow: 1; /* يسمح للزر يكبر ليملأ المساحة المتاحة لو في مساحة */
+  max-width: 120px; /* لتحديد أقصى عرض للزر */
+}
+
+.book-card .actions .add-to-cart-btn {
+  background-color: #7C5DD4;
+  color: white;
+  border: none;
+}
+
+.book-card .actions .add-to-cart-btn:hover {
+  background-color: #6a4ec7;
+}
+
+/* تنسيق أيقونة/زر Favorite */
+.book-card .actions .favorite-btn {
+  background-color: #f0f0f0; /* خلفية فاتحة */
+  color: #7C5DD4; /* نفس لون الـ primary للمكتبة */
+  border: 1px solid #7C5DD4; /* بوردر بنفس اللون */
+  padding: 8px 10px; /* تعديل الـ padding للأيقونة */
+  font-size: 18px; /* حجم أكبر للأيقونة */
+  display: flex; /* لعرض الأيقونة والنص (لو فيه) جنب بعض */
+  align-items: center; /* توسيط عمودي */
+  justify-content: center; /* توسيط أفقي */
+  width: 40px; /* حجم ثابت للايقونة */
+  height: 40px; /* حجم ثابت للايقونة */
+  box-sizing: border-box; /* لضمان أن الـ padding والـ border مش هيزودوا الحجم */
+}
+
+.book-card .actions .favorite-btn:hover {
+  background-color: #7C5DD4;
+  color: white;
+}
+
+/* تنسيق خاص لأيقونة Favorite لو الكتاب في المفضلة (ممكن تضيفها بالـ JS) */
+.book-card .actions .favorite-btn.favorited {
+  color: red; /* لو عايز القلب يبقى أحمر مثلاً */
+  border-color: red;
+}
+.book-card .actions .favorite-btn.favorited:hover {
+  background-color: red;
+  color: white;
+}
+
+/* لضمان تنسيق الوصف */
+.book-card p.description {
+  font-size: 14px;
+  color: #777;
+  height: 60px; /* ارتفاع ثابت للوصف عشان الكروت تكون متساوية */
+  overflow: hidden; /* إخفاء النص الزائد */
+  text-overflow: ellipsis; /* إضافة نقاط لو النص اتقص */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* عرض سطرين بس */
+  -webkit-box-orient: vertical;
+}
+
+/* تنسيق العنوان عشان ما يبقاش كبير قوي */
+.book-card h3 {
+    white-space: nowrap; /* يمنع الكلمة من النزول سطر لوحدها */
+    overflow: hidden; /* إخفاء النص الزائد */
+    text-overflow: ellipsis; /* إضافة نقاط لو النص اتقص */
+}
+
+/* لو عايز الـ container-heading يبقى على سطر جديد فوق الـ cards */
+.container-heading {
     width: 100%;
-    height: 280px; /* ارتفاع أكبر للصورة */
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
-  
-  .book-card h3 {
-    font-size: 18px;
-    color: #2c3e50;
-    margin: 5px 0;
-  }
-  
-  .book-card p {
-    font-size: 15px;
-    color: #555;
-    margin: 0;
-  }
-  
-  
-  .container-heading {
-    text-align: center;
-    font-size: 30px;
-    color: black;
-    margin: 20px 0 20px;
-  }
+    margin-top: 30px; /* مسافة إضافية من فوق */
+}
+
 
 
 

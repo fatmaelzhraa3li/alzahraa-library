@@ -1,186 +1,207 @@
-document.addEventListener('DOMContentLoaded', () => {
+// sections.js
 
-    // الرابط الفعلي للـ API الذي قدمته
-    const API_DATA_URL = 'https://edu-me01.github.io/Json-Data/Digital-Library.json';
+// ** الدوال المساعدة (Helper Functions) **
+function getCartItems() {
+    const cartItemsString = localStorage.getItem('cartItems');
+    try {
+        return cartItemsString ? JSON.parse(cartItemsString) : [];
+    } catch (error) {
+        console.error('Error parsing cart items from localStorage:', error);
+        return [];
+    }
+}
 
-    // وظيفة لتحويل اسم الفئة إلى ID حاوية الكتب الداخلية
-    const getContainerIdFromCategory = (categoryName) => {
-        // تحويل "Science Fiction" إلى "science-fiction-books-container"
-        return `${categoryName.toLowerCase().replace(/\s/g, '-')}-books-container`;
-    };
+function saveCartItems(items) {
+    localStorage.setItem('cartItems', JSON.stringify(items));
+}
 
-    // وظيفة لتحويل اسم الفئة إلى ID عداد الكتب
-    const getBookCountIdFromCategory = (categoryName) => {
-        // تحويل "Romantic" إلى "romantic-book-count"
-        return `${categoryName.toLowerCase().replace(/\s/g, '-')}-book-count`;
-    };
+function getFavoriteItems() {
+    const favoritesString = localStorage.getItem('favoriteBooks');
+    try {
+        return favoritesString ? JSON.parse(favoritesString) : [];
+    } catch (error) {
+        console.error('Error parsing favorite items from localStorage:', error);
+        return [];
+    }
+}
 
-    // وظيفة لإنشاء بطاقة كتاب واحدة
-    const createBookCard = (book) => {
-        const bookCard = document.createElement('div');
-        bookCard.classList.add('book-card');
-        bookCard.setAttribute('data-book-id', book.id);
+function saveFavoriteItems(items) {
+    localStorage.setItem('favoriteBooks', JSON.stringify(items));
+}
 
-        const isFavorited = localStorage.getItem(`favorite-${book.id}`) === 'true';
+const API_URL = 'https://edu-me01.github.io/Json-Data/Digital-Library.json';
 
-        bookCard.innerHTML = `
-            <img src="${book.image || 'https://via.placeholder.com/200x250?text=No+Image'}"
-                 alt="${book.title} Cover" class="book-cover">
+async function fetchAllBooks() {
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data.books || [];
+    } catch (error) {
+        console.error('Error fetching books from API:', error);
+        return [];
+    }
+}
+
+// تم تحديث هذه الدالة لتعكس التغيير في اسم الكلاس من .card-actions إلى .actions
+function renderBookCard(book, isFavorited, isInCart) {
+    const defaultCover = './images/book.jpg';
+    const defaultPrice = 15.00;
+    const bookPrice = book.price !== undefined ? book.price : defaultPrice;
+
+    return `
+        <div class="book-card" data-book-id="${book.id}">
+            <img src="${book.coverImage || defaultCover}" alt="${book.title}" class="book-cover">
             <div class="book-info">
-                <h3 class="book-title">${book.title}</h3>
-                <p class="book-author">${book.author}</p>
-                <p class="book-price">${book.price ? book.price.toFixed(2) + ' EGP' : 'N/A'}</p>
+                <h4 class="book-title" title="${book.title}">${book.title}</h4>
+                <p class="book-author" title="${book.author}">Author: ${book.author}</p>
+                <span class="book-price">$${bookPrice.toFixed(2)}</span>
             </div>
-            <div class="card-actions">
-                <button class="add-to-cart-btn" data-book-id="${book.id}">Add to Cart</button>
+            <div class="actions"> <button class="add-to-cart-btn" data-book-id="${book.id}" ${isInCart ? 'disabled' : ''}>
+                    ${isInCart ? 'Added to Cart' : 'Add to Cart'}
+                </button>
                 <button class="favorite-btn ${isFavorited ? 'favorited' : ''}" data-book-id="${book.id}">
-                    <i class="${isFavorited ? 'fas' : 'far'} fa-heart"></i>
+                    <i class="fas fa-heart"></i>
                 </button>
             </div>
-        `;
-        return bookCard;
+        </div>
+    `;
+}
+
+function addToCart(bookId) {
+    let cart = getCartItems();
+    const existingItem = cart.find(item => item.bookId === bookId);
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ bookId: bookId, quantity: 1 });
+    }
+    saveCartItems(cart);
+    updateCartButtonText(bookId, true);
+}
+
+function toggleFavorite(bookId) {
+    let favorites = getFavoriteItems();
+    const index = favorites.indexOf(bookId);
+    const favoriteBtn = document.querySelector(`.favorite-btn[data-book-id="${bookId}"]`);
+
+    if (index > -1) {
+        favorites.splice(index, 1);
+        favoriteBtn.classList.remove('favorited');
+    } else {
+        favorites.push(bookId);
+        favoriteBtn.classList.add('favorited');
+    }
+    saveFavoriteItems(favorites);
+}
+
+function updateCartButtonText(bookId, isInCart) {
+    const button = document.querySelector(`.add-to-cart-btn[data-book-id="${bookId}"]`);
+    if (button) {
+        button.textContent = isInCart ? 'Added to Cart' : 'Add to Cart';
+        button.disabled = isInCart;
+    }
+}
+
+async function loadSections() {
+    const allBooks = await fetchAllBooks();
+    const favoriteBooks = getFavoriteItems();
+    const cartItems = getCartItems();
+
+    const sectionsConfig = {
+        'romantic': {
+            containerId: 'romantic-books-container',
+            countId: 'romantic-book-count',
+            keywords: ['romance', 'romantic']
+        },
+        'science fiction': {
+            containerId: 'science-fiction-books-container',
+            countId: 'science-fiction-book-count',
+            keywords: ['science fiction', 'sci-fi', 'futuristic', 'dystopian']
+        },
+        'fantasy': {
+            containerId: 'fantasy-books-container',
+            countId: 'fantasy-book-count',
+            keywords: ['fantasy', 'epic', 'middle-earth', 'adventure']
+        },
+        'history': {
+            containerId: 'history-books-container',
+            countId: 'history-book-count',
+            keywords: ['history', 'historical', 'ancient-wisdom']
+        },
+        'philosophy': {
+            containerId: 'philosophy-books-container',
+            countId: 'philosophy-book-count',
+            keywords: ['philosophy', 'spiritual', 'spirituality', 'dreams']
+        },
+        'psychology': {
+            containerId: 'psychology-books-container',
+            countId: 'psychology-book-count',
+            keywords: ['psychology', 'self-help', 'habits', 'productivity', 'personal-development', 'behavioral-economics']
+        },
+        'classic literature': {
+            containerId: 'classic-literature-books-container',
+            countId: 'classic-literature-book-count',
+            keywords: ['classic', 'classic literature', 'coming-of-age', 'social-justice']
+        }
     };
 
-    // وظيفة لعرض الكتب في قسم معين (باستخدام ID حاوية الكتب الداخلية) وتحديث العدد
-    const displayBooksInSpecificContainer = (containerId, booksArray, categoryName) => {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.warn(`Container with ID '${containerId}' not found in HTML.`);
-            return;
-        }
+    const categorizedBooks = {};
+    for (const key in sectionsConfig) {
+        categorizedBooks[key] = [];
+    }
 
-        container.innerHTML = ''; // مسح المحتوى القديم (مثل رسالة "Loading...")
+    allBooks.forEach(book => {
+        const bookTags = Array.isArray(book.tags) ? book.tags.map(tag => tag.toLowerCase()) : [];
 
-        if (booksArray && booksArray.length > 0) {
-            booksArray.forEach(book => {
-                container.appendChild(createBookCard(book));
-            });
-        } else {
-            container.innerHTML = '<p style="text-align: center; width: 100%; color: #666;">No books available in this section.</p>';
-        }
+        for (const sectionKey in sectionsConfig) {
+            const keywords = sectionsConfig[sectionKey].keywords;
+            const isMatch = keywords.some(keyword => bookTags.includes(keyword.toLowerCase()));
 
-        // !!! تحديث عدد الكتب الآن !!!
-        const bookCountSpanId = getBookCountIdFromCategory(categoryName);
-        const bookCountSpan = document.getElementById(bookCountSpanId);
-        if (bookCountSpan) {
-            bookCountSpan.textContent = `(${booksArray ? booksArray.length : 0} Books)`;
-        }
-    };
-
-    // وظيفة لجلب جميع البيانات (الفئات والكتب) من الـ API وتوزيعها
-    const fetchAndDistributeData = async () => {
-        let allCategoriesFromAPI = [];
-        let allBooks = [];
-
-        try {
-            // تحديث رسائل التحميل لجميع حاويات الكتب
-            document.querySelectorAll('.books-container').forEach(container => {
-                container.innerHTML = '<p style="text-align: center; width: 100%; color: #888;">جاري تحميل الكتب...</p>';
-            });
-
-            const response = await fetch(API_DATA_URL);
-            if (!response.ok) {
-                throw new Error(`خطأ في الشبكة! الحالة: ${response.status} - لا يمكن جلب البيانات من ${API_DATA_URL}`);
+            if (isMatch) {
+                categorizedBooks[sectionKey].push(book);
             }
-            const data = await response.json();
-
-            allCategoriesFromAPI = data.categories || [];
-            allBooks = data.books || [];
-
-            console.log('Data fetched from API:', data);
-
-        } catch (error) {
-            console.error('حدث خطأ أثناء جلب البيانات من API:', error);
-            document.querySelectorAll('.books-container').forEach(container => {
-                container.innerHTML = '<p style="color: red; text-align: center; width: 100%;">عذرًا، فشل تحميل الكتب. الرجاء المحاولة لاحقًا.</p>';
-            });
-            return;
         }
+    });
 
-        // 1. تجميع الكتب حسب الفئة (genre)
-        const categorizedBooks = {};
-        allBooks.forEach(book => {
-            if (book.genre) {
-                if (!categorizedBooks[book.genre]) {
-                    categorizedBooks[book.genre] = [];
-                }
-                categorizedBooks[book.genre].push(book);
+    for (const sectionKey in sectionsConfig) {
+        const config = sectionsConfig[sectionKey];
+        const container = document.getElementById(config.containerId);
+        const countSpan = document.getElementById(config.countId);
+
+        if (container && countSpan) {
+            const booksInSection = categorizedBooks[sectionKey];
+            if (booksInSection.length > 0) {
+                container.innerHTML = '';
+                booksInSection.forEach(book => {
+                    const isFavorited = favoriteBooks.includes(book.id);
+                    const isInCart = cartItems.some(item => item.bookId === book.id);
+                    container.innerHTML += renderBookCard(book, isFavorited, isInCart);
+                });
+                countSpan.textContent = `(${booksInSection.length} Books)`;
+            } else {
+                container.innerHTML = '<p class="empty-message">No books found in this section.</p>';
+                countSpan.textContent = '(0 Books)';
             }
+        }
+    }
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const bookId = parseInt(event.target.dataset.bookId);
+            addToCart(bookId);
         });
+    });
 
-        // 2. عرض الكتب في الأقسام المناسبة وتحديث العدد
-        document.querySelectorAll('.book-section').forEach(section => {
-            // انتبه: هنا نحصل على اسم الفئة من النص المباشر لـ h3.section-title
-            const sectionTitleElement = section.querySelector('.section-title');
-            if (sectionTitleElement) {
-                // للوصول إلى اسم الفئة "Romance" فقط، سنتجاهل الـ span الخاص بالعدد مؤقتًا
-                // أو الأفضل، في الـ HTML، ضع Romance داخل span أول، والعدد في span ثانٍ.
-                // بناءً على آخر HTML أرسلته (h3>Romance<)، هذه الطريقة ستعمل:
-                const categoryNameSpan = sectionTitleElement.querySelector('span:first-child'); // ابحث عن أول سبان (اسم الفئة)
-                let categoryName;
-
-                if (categoryNameSpan) {
-                    categoryName = categoryNameSpan.textContent.trim();
-                } else {
-                    // إذا لم يكن هناك سبان، فافترض أن النص المباشر لـ h3 هو اسم الفئة
-                    categoryName = sectionTitleElement.textContent.trim();
-                    // قد تحتاج لإزالة أي نص بين الأقواس إذا كان موجودًا
-                    const match = categoryName.match(/(.*?)\s*\(.*?\)/); // يطابق "النص (أي شيء)"
-                    if (match && match[1]) {
-                        categoryName = match[1].trim(); // يأخذ الجزء قبل القوسين
-                    }
-                }
-
-
-                const containerId = getContainerIdFromCategory(categoryName);
-                const booksForCategory = categorizedBooks[categoryName] || [];
-                
-                // !!! التعديل المهم هنا: تمرير categoryName إلى دالة العرض !!!
-                displayBooksInSpecificContainer(containerId, booksForCategory, categoryName);
-            }
+    document.querySelectorAll('.favorite-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const bookId = parseInt(event.currentTarget.dataset.bookId);
+            toggleFavorite(bookId);
         });
+    });
+}
 
-        // 3. إضافة مستمعي الأحداث لأزرار السلة والمفضلة بعد عرض كل الكتب
-        addCardEventListeners();
-    };
-
-    // وظيفة لإضافة مستمعي الأحداث (click) لأزرار السلة والمفضلة
-    const addCardEventListeners = () => {
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const bookId = event.currentTarget.dataset.bookId;
-                console.log(`Book ID ${bookId} added to cart!`);
-                alert(`"${bookId}" added to cart!`);
-            });
-        });
-
-        document.querySelectorAll('.favorite-btn').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const bookId = event.currentTarget.dataset.bookId;
-                const icon = event.currentTarget.querySelector('i');
-
-                if (event.currentTarget.classList.contains('favorited')) {
-                    event.currentTarget.classList.remove('favorited');
-                    icon.classList.remove('fas');
-                    icon.classList.add('far');
-                    localStorage.removeItem(`favorite-${bookId}`);
-                    console.log(`Book ID ${bookId} removed from favorites.`);
-                } else {
-                    event.currentTarget.classList.add('favorited');
-                    icon.classList.remove('far');
-                    icon.classList.add('fas');
-                    localStorage.setItem(`favorite-${bookId}`, 'true');
-                    console.log(`Book ID ${bookId} added to favorites!`);
-                }
-            });
-        });
-    };
-
-    // وظيفة تهيئة الصفحة: جلب وعرض كل شيء
-    const initializePage = () => {
-        fetchAndDistributeData(); // جلب الكتب وتوزيعها
-    };
-
-    // بدء تهيئة الصفحة عند تحميل DOM
-    initializePage();
-});
+document.addEventListener('DOMContentLoaded', loadSections);

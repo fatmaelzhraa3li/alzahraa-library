@@ -1,5 +1,4 @@
 
-
 .login-container {
     width: 70%;                 
     margin-left: auto;
@@ -139,8 +138,10 @@ h2 {
 }
 
 /* جزء "لا تملك حساب؟" Sign Up */
+/* هذا الجزء تم حذفه من HTML وبالتالي لن يكون له تأثير */
+/*
 .signup-prompt {
-    margin-top: 30px; /* مسافة من زر تسجيل الدخول */
+    margin-top: 30px; 
     text-align: center;
     color: #555;
     font-size: 0.95em;
@@ -157,6 +158,7 @@ h2 {
     color: #AC96EA;
     text-decoration: underline;
 }
+*/
 
 .message {
     margin-top: 20px;
@@ -169,5 +171,61 @@ h2 {
     color: #28a745;
 }
 
+/* تنسيقات جديدة لزر جوجل */
+.divider {
+    text-align: center;
+    margin: 30px 0;
+    color: #888;
+    font-size: 0.9em;
+    position: relative;
+}
 
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #eee;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.google-sign-in-btn {
+    background-color: #4285F4; /* لون أزرق جوجل */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: flex; /* لجعل الأيقونة والنص في سطر واحد */
+    align-items: center; /* محاذاة رأسية */
+    justify-content: center; /* توسيط أفقي */
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.google-sign-in-btn:hover {
+    background-color: #357ae8; /* لون أغمق عند التمرير */
+    transform: translateY(-2px);
+}
+
+.google-sign-in-btn .google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* مسافة بين الأيقونة والنص */
+    background-color: white; /* خلفية بيضاء للأيقونة لتظهر بشكل أوضح */
+    border-radius: 50%; /* لجعلها دائرية إذا كانت الصورة مربعة */
+    padding: 2px; /* بادينغ صغير حول الأيقونة */
+}
 

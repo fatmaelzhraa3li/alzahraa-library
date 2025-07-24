@@ -1,36 +1,34 @@
-.main-header nav a #cartCount {
-    background-color: #DB4437; /* لون مميز لعداد السلة */
-    border-radius: 50%;
-    padding: 2px 8px;
-    font-size: 0.8em;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
 .cart-page-content {
-    padding: 40px;
+    padding: 20px; /* تقليل البادينج للصفحة */
     max-width: 1200px;
-    margin: 30px auto;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-wrap: wrap; /* للسماح للعناصر بالالتفاف */
-    gap: 30px; /* مسافة بين حاوية العناصر والملخص */
+    margin: 20px auto; /* تقليل الهوامش العلوية والسفلية */
+    background-color: #f9f9f9; /* لون خلفية أفتح للصفحة نفسها */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex; /* استخدام فليكس بوكس لترتيب الحاويتين (العناصر والملخص) */
+    flex-wrap: wrap; /* للسماح للعناصر بالالتفاف في الشاشات الصغيرة */
+    gap: 30px; /* مسافة بين حاوية العناصر وملخص الطلب */
 }
 
 .cart-page-content h2 {
     width: 100%; /* العنوان يأخذ عرض كامل */
     color: #7C5DD4;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 2.5em;
+    margin-bottom: 25px; /* مسافة أسفل العنوان */
+    font-size: 2.2em; /* حجم خط مناسب للعنوان */
     font-weight: 700;
 }
 
 .cart-items-container {
-    flex: 2; /* تأخذ مساحة أكبر من الملخص */
-    min-width: 60%; /* الحد الأدنى للعرض */
+    flex: 3; /* تأخذ مساحة أكبر من الملخص */
+    min-width: 65%; /* تأكد من عرضها على الأقل 65% */
+    display: grid; /* استخدام Grid لتنسيق الـ cards بجانب بعضها */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* أعمدة مرنة */
+    gap: 20px; /* المسافة بين الـ cards */
+    padding: 15px; /* بادينج داخلي للحاوية */
+    background-color: #fff; /* خلفية بيضاء لحاوية الكروت */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .empty-message {
@@ -38,78 +36,164 @@
     color: #888;
     font-size: 1.2em;
     padding: 50px 0;
-    width: 100%;
+    width: 100%; /* تأخذ عرض كامل داخل الـ grid */
+    grid-column: 1 / -1; /* تجعلها تمتد على كل الأعمدة في الـ grid */
 }
 
+/* تنسيق كارت الكتاب الواحد في السلة - Similar to Favorites Card */
 .cart-item {
+    background-color: #fff;
+    border: 1px solid #eee; /* حد خفيف حول الكارت */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* لإخفاء أي جزء زائد عن الحدود */
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding: 20px 0;
-    margin-bottom: 15px;
+    flex-direction: column; /* العناصر داخل الكارت تترتب عموديًا */
+    align-items: center; /* توسيط المحتوى أفقياً */
+    text-align: center; /* توسيط النصوص */
+    padding: 15px; /* بادينج داخلي للكارت */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* تأثير عند التحويم */
 }
 
-.cart-item:last-child {
-    border-bottom: none; /* إزالة الحد من آخر عنصر */
+.cart-item:hover {
+    transform: translateY(-3px); /* رفع الكارت قليلاً عند التحويم */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12); /* ظل أكبر عند التحويم */
 }
 
 .cart-item-image {
-    width: 100px;
-    height: 120px;
-    object-fit: cover; /* لضمان تغطية الصورة للمساحة دون تشويه */
-    border-radius: 8px;
-    margin-right: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 100%; /* الصورة تأخذ عرض الكارت بالكامل */
+    max-height: 150px; /* تحديد أقصى ارتفاع للصورة */
+    object-fit: contain; /* لضمان ظهور الصورة كاملة داخل المساحة */
+    border-radius: 6px;
+    margin-bottom: 10px; /* مسافة أسفل الصورة */
 }
 
 .cart-item-details {
+    padding: 5px 0; /* تقليل البادينج */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-grow: 1; /* للسماح للتفاصيل بأن تأخذ المساحة المتاحة */
 }
 
 .cart-item-details h4 {
-    margin: 0 0 8px 0;
-    color: #555;
-    font-size: 1.2em;
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.1em; /* حجم خط العنوان */
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis; /* إضافة نقاط (...) إذا كان النص طويلاً */
+    white-space: nowrap; /* منع النص من النزول لسطر جديد */
+    width: 100%; /* تأكد أن العنوان يأخذ العرض المتاح */
 }
 
 .cart-item-details p {
-    margin: 0;
+    margin: 3px 0;
     color: #777;
+    font-size: 0.85em; /* حجم خط المؤلف */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; /* تأكد أن النص يأخذ العرض المتاح */
+}
+
+/* تنسيقات أزرار التحكم في الكمية */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* توسيط الأزرار وحقل الكمية */
+    gap: 5px; /* مسافة بين الأزرار وحقل الكمية */
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.quantity-controls button {
+    background-color: #7C5DD4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 28px; /* عرض الزر */
+    height: 28px; /* ارتفاع الزر */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* لضمان توسط الرمز/النص */
+}
+
+.quantity-controls button:hover {
+    background-color: #6a4ec1;
+}
+
+.item-quantity {
+    width: 45px; /* عرض حقل الكمية */
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 0.9em;
+    -moz-appearance: textfield; /* لإزالة أسهم المتصفح في Firefox */
+}
+
+/* لإزالة أسهم المتصفح في Chrome/Safari/Edge */
+.item-quantity::-webkit-outer-spin-button,
+.item-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .cart-item-price {
-    font-size: 1.1em;
+    font-size: 1.0em; /* حجم خط السعر */
     font-weight: bold;
     color: #7C5DD4;
-    margin-left: 20px;
-    white-space: nowrap; /* لمنع كسر السطر */
+    margin-top: 8px; /* مسافة من الكمية */
 }
 
-/* الملخص الجانبي */
+.remove-item-btn {
+    background-color: #dc3545; /* لون أحمر للإزالة */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px; /* مسافة من أسفل العناصر الأخرى */
+    width: 90%; /* زر الإزالة يأخذ عرض أكبر */
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333;
+}
+
+/* الملخص الجانبي - Cart Summary */
 .cart-summary {
     flex: 1; /* تأخذ مساحة أقل */
-    min-width: 300px;
-    background-color: #f9f9f9;
-    padding: 25px;
+    min-width: 280px; /* الحد الأدنى للعرض */
+    background-color: #fff; /* خلفية بيضاء */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* ظل داخلي */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    align-self: flex-start; /* تجعل الملخص يبدأ من الأعلى */
 }
 
 .cart-summary h3 {
     color: #7C5DD4;
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: 1.8em;
+    font-size: 1.6em; /* حجم خط العنوان */
     text-align: center;
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed #eee; /* خط منقط */
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.9em;
 }
 
 .summary-item span:first-child {
@@ -122,24 +206,24 @@
 }
 
 .summary-item.total {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: bold;
     border-bottom: none;
-    margin-top: 20px;
+    margin-top: 15px;
     color: #7C5DD4;
 }
 
 .checkout-btn {
     background-color: #28a745; /* لون أخضر جميل لزر الدفع */
     color: white;
-    padding: 15px 25px;
+    padding: 14px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 20px;
     transition: background-color 0.3s ease;
 }
 
@@ -147,57 +231,98 @@
     background-color: #218838;
 }
 
-/* استجابة التصميم للشاشات الأصغر */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 20px;
-    }
-    .main-header nav {
-        margin-top: 15px;
-    }
-    .main-header nav a {
-        margin: 0 10px;
-    }
-
+/* استجابة التصميم للشاشات الأصغر - Media Queries */
+@media (max-width: 992px) {
     .cart-page-content {
-        flex-direction: column; /* تكديس العناصر عموديا */
-        padding: 20px;
-        margin: 20px auto;
+        flex-direction: column; /* تكديس العناصر والملخص عموديا */
+        gap: 20px;
     }
-    .cart-items-container,
-    .cart-summary {
+    .cart-items-container {
         min-width: unset; /* إلغاء الحد الأدنى للعرض */
         width: 100%; /* تأخذ العرض الكامل */
     }
     .cart-summary {
-        margin-top: 30px;
+        min-width: unset;
+        width: 100%;
+        margin-top: 0; /* إزالة الهامش إذا كانت في عمود جديد */
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-items-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 3 أعمدة أو أكثر */
+        gap: 15px;
+    }
+    .cart-item {
+        padding: 10px;
+    }
+    .cart-item-image {
+        max-height: 120px;
+    }
+    .cart-item-details h4 {
+        font-size: 1em;
+    }
+    .cart-item-details p {
+        font-size: 0.8em;
+    }
+    .quantity-controls button {
+        width: 22px;
+        height: 22px;
+        font-size: 0.9em;
+    }
+    .item-quantity {
+        width: 35px;
+        font-size: 0.8em;
+    }
+    .remove-item-btn {
+        font-size: 0.8em;
+        padding: 6px 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
+    .cart-page-content {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    .cart-items-container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* 2-3 أعمدة في الشاشات الصغيرة جداً */
+        gap: 10px;
     }
     .cart-item-image {
-        margin-right: 0;
-        margin-bottom: 15px;
+        max-height: 100px;
     }
-    .cart-item-price {
-        margin-left: 0;
-        margin-top: 10px;
-        width: 100%; /* لجعل السعر يأخذ عرض كامل */
-        text-align: right;
+    .cart-item-details h4 {
+        font-size: 0.9em;
+    }
+    .cart-item-details p {
+        font-size: 0.75em;
+    }
+    .quantity-controls button {
+        width: 20px;
+        height: 20px;
+        font-size: 0.8em;
+    }
+    .item-quantity {
+        width: 30px;
+        font-size: 0.75em;
+    }
+    .remove-item-btn {
+        font-size: 0.7em;
+        padding: 5px 8px;
+        width: 100%; /* تأخذ العرض الكامل للزر في الشاشات الصغيرة جدا */
+    }
+    .cart-summary {
+        padding: 15px;
+    }
+    .summary-item {
+        font-size: 0.85em;
+    }
+    .summary-item.total {
+        font-size: 1.1em;
+    }
+    .checkout-btn {
+        padding: 12px 15px;
+        font-size: 1em;
     }
 }
- 
- 
- 
- 
- 
- 
- 
- 
