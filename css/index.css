@@ -9,7 +9,6 @@
     background-position: right top;
     color: white;
     padding: 30px 0 150px;
-    
     display: flex; /* تم التغيير إلى flexbox للتخطيط */
     align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
     justify-content: flex-start; /* توزيع المساحة بين العناصر */

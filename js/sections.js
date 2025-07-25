@@ -1,4 +1,4 @@
-// sections.js
+
 
 // ** الدوال المساعدة (Helper Functions) **
 function getCartItems() {

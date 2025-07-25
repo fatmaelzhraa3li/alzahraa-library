@@ -51,6 +51,7 @@ nav a:hover {
   /* إزالة أي خلفية أو حدود أخرى لو كانت موجودة */
   background: none;
   border-color: transparent;
+  text-decoration: underline;
 }
 
 /* لما تضغط على اللينك فعلاً (Active) */
