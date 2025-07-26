@@ -55,7 +55,6 @@ nav a {
   color: white;
   text-decoration: none;
   padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
 }
 
@@ -88,9 +87,6 @@ footer p {
   margin: 0;
   font-family: 'Cairo', sans-serif;
 } 
-
-
-
 
 
 

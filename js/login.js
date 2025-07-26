@@ -53,3 +53,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+    // --------------------------------------------------------------------
+    // الكود الخاص بتسجيل الدخول بجوجل
+    // --------------------------------------------------------------------
+
+    // 1. تهيئة خدمة تسجيل الدخول من جوجل
+    google.accounts.id.initialize({
+        client_id: "348768945048-7t56qa0m7mh3i1fcu5ivhd3maln32g3p.apps.googleusercontent.com", 
+        callback: handleGoogleResponse // اسم الدالة التي ستستقبل استجابة جوجل
+    });
+
+    // 2. الحصول على زر تسجيل الدخول من HTML بواسطة الـ ID الخاص به
+    const googleSignInButton = document.getElementById('googleSignInBtn');
+
+    // 3. التحقق مما إذا كان الزر موجودًا بالفعل في الصفحة قبل إضافة event listener
+    if (googleSignInButton) {
+        // 4. ربط الزر بحدث النقر: عندما يتم النقر على الزر، افتح نافذة تسجيل الدخول من جوجل
+        googleSignInButton.onclick = () => {
+            google.accounts.id.prompt(); // هذا الأمر هو الذي يظهر نافذة تسجيل الدخول المنبثقة
+        };
+    }
+
+
+// --------------------------------------------------------------------
+// الدوال (الوظائف) التي ليست جزءًا من DOMContentLoaded
+// --------------------------------------------------------------------
+
+// هذه الدالة (الوظيفة) تُستدعى تلقائيًا بواسطة مكتبة جوجل عندما يقوم المستخدم بتسجيل الدخول بنجاح
+function handleGoogleResponse(response) {
+    const idToken = response.credential;
+    console.log("تم تسجيل الدخول بنجاح! ID Token:", idToken);
+}
