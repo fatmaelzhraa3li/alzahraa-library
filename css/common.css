@@ -42,51 +42,26 @@ nav a {
   outline: none; 
 }
 
-/* لما الماوس يجي على اللينك (Hover) */
+
+
+nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
 nav a:hover {
-  /* تفعيل الخط الأبيض */
-  border-bottom-color: white; 
-  /* تأكيد أن لون النص أبيض */
-  color: white; 
-  /* إزالة أي خلفية أو حدود أخرى لو كانت موجودة */
-  background: none;
-  border-color: transparent;
-  text-decoration: underline;
-}
-
-/* لما تضغط على اللينك فعلاً (Active) */
-nav a:active {
-  /* تفعيل الخط الأبيض */
-  border-bottom-color: white; 
-  /* تأكيد أن لون النص أبيض */
-  color: white; 
-  /* إزالة أي خلفية أو حدود أخرى لو كانت موجودة */
-  background: none;
-  border-color: transparent;
-}
-
-/* هذا الجزء اختياري وموصى به لتحسين إمكانية الوصول:
-   يظهر الخط الأبيض أيضاً عندما يتم التركيز على اللينك باستخدام لوحة المفاتيح (Tab) */
-nav a:focus {
-  border-bottom-color: white; 
-  color: white;
-  background: none;
-  border-color: transparent;
-}
-
-/* لو عايز اللينك بتاع الصفحة اللي أنت واقف عليها حاليًا يفضل ظاهر تحته الخط الأبيض */
-/* لازم تضيف الكلاس 'active-link' للينك ده في الـ HTML يدوياً */
-nav a.active-link {
   border-bottom-color: white;
-  color: white;
-  background: none;
-  border-color: transparent;
 }
+
 
 
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   background-color: #F8F6FC;
   direction: ltr;
