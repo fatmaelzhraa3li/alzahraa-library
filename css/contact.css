@@ -1,32 +1,37 @@
 /*تكملة تنسيقات صفحه contact.html */
-.form-contact{
-    
-    padding: 20px 0 20px;
-    margin-top: 80px;
-    margin-bottom: 20px;
-  }
-  
-  
-  
-  .form-contact h1{
-    color: black;
-    text-align: center;
-    margin: 0;
-    padding: 10px;
-  }
+
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 30px 0 0px; 
+  background-color: #fff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+}
+
+
+.page-title {
+  text-align: center;
+  font-size: 30px;
+  color: #7C5DD4;
+  margin-bottom: 30px;
+  padding: 0 0 15px;
+  border-bottom: 2px solid #e0e0e0; /* خط سفلي سميك وواضح */
+}
+
+
   
   
   form {
     width: 35%;                 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px;
     height: 350px;
     background: #7C5DD4;
-    
-    padding: 40px 40px 50px ;
-    border-radius: 10px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 40px 50px 30px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); 
   }
   
   
@@ -35,10 +40,10 @@
     width: 100%;
     height: 20px;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 20px;
+    border-radius: 10px;
+    font-size: 15px;
   }
   
   
@@ -47,32 +52,35 @@
     width: 100%;
     height: 120px;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 20px;
+    border-radius: 10px;
+    font-size: 15px;
   }
   
   
   
   
   form button {
-    background: white;
-    color: #7C5DD4;
-    border: none;
+    background-color: white; 
+    color: #7C5DD4; 
+    border: 1px solid #7C5DD4; 
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-decoration: none;
     display: block;
     width: 30%;                 
     margin-left: auto;
     margin-right: auto;
-    padding: 12px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
   }
   
+
   form button:hover {
-    background-color: #3b4c66;
+    background-color: #E5DEFA;
+    color: #7C5DD4;
   } 
   
   
@@ -86,18 +94,26 @@
 
 /* تنسيقات قسم معلومات التواصل (contact-info) */
 .contact-info {
-    width: 100%;                 /* تأخذ عرض الصفحة بالكامل */
-    margin-top: 50px;           /* هامش علوي وسفلي 20px وتوسيط أفقي */
+    width: 100%;               
+    margin: 50px 0 50px;         
     background-color: #7C5DD4;
-    padding: 30px 0 50px;          /* بادينج رأسي 40px وأفقي 20px */
-    border-radius: 0;            /* زوايا حادة */
-    box-shadow: none;            /* لا يوجد ظل */
+    padding: 30px 0 50px;         
+    border-radius: 0;           
+    box-shadow: none;           
     box-sizing: border-box;
-    text-align: center;          /* توسيط المحتوى الداخلي */
+    text-align: center;        
   }
   
   
   
+  .contact-info h2 {
+    margin: 0px;         
+    font-size: 25px;             
+    color: #fff; 
+    margin-bottom: 20px;
+    text-align: center; 
+  }
+
   
   /* حاوية الكروت - لترتيب الكروت جنبًا إلى جنب */
   .contact-methods {
@@ -112,43 +128,71 @@
   
   
   .contact-card {
-    flex: 0 0 auto;              /* يمنع النمو والتقلص التلقائي للكارد، ويستخدم العرض المحدد */
-    width: 140px;                /* عرض ثابت للكارد */
-    padding: 20px 0 20px;
-    background-color: white;
-    padding: 20px;               /* بادينج داخلي أصغر */
-    border-radius: 8px;          /* زوايا دائرية */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف */
-    text-align: center;          /* توسيط المحتوى داخل الكارد */
-    text-decoration: none;       /* إزالة خط التسطير من الروابط */
-    color: #333;                 /* لون نص عام للكارد */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تأثير عند التمرير */
+    background-color: #fff; 
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    color: #555;
+    padding: 10px;
+    width: 100px;    
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-card:hover {
-    transform: translateY(-8px); /* رفع الكارد قليلاً عند التمرير */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* ظل أوضح عند التمرير */
+    background-color:#F8F6FC;
+    transform: translateY(-2px); /* تأثير رفع بسيط */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .contact-card .icon {
-    font-size: 40px;             /* حجم الأيقونة */
-    margin-bottom: 5px;          /* مسافة تحت الأيقونة */
-    display: block;              /* لجعل الأيقونة تأخذ سطرها الخاص */
+  .contact-card .linkedin-icon {
+    font-size: 40px;     
+    color: #0077B5;      
+    margin-bottom: 5px;
+    display: block;
   }
   
-  
-  .contact-info h1 {
-    margin: 0px;         /* مسافة تحت عنوان معلومات التواصل */
-    color: black;
-    font-size: 24px;             /* حجم العنوان */
+  .contact-card .facebook-icon {
+    font-size: 40px;     
+    color: #1877F2;      
+    margin-bottom: 5px;
+    display: block;
   }
-  
-  
+
+  .contact-card .envelope-icon {
+    font-size: 40px;     
+    color: #495057;      
+    margin-bottom: 5px;
+    display: block;
+  }
+
+
+  .contact-card .whatsapp-icon {
+    font-size: 40px;     
+    color: #25D366;      
+    margin-bottom: 5px;
+    display: block;
+  }
+
+
+  .contact-card .phone-icon {
+    font-size: 40px;     
+    color: #6c757d;      
+    margin-bottom: 5px;
+    display: block;
+  }
+
+
+
   .contact-card h3 {
-    font-size: 14px;             /* حجم عنوان الكارد */
-    margin-bottom: 4px;          /* مسافة تحت العنوان */
-    color: blue;              /* لون العنوان */
-    text-decoration: underline;
+    font-size: 15px;           
+    margin-bottom: 4px;       
+    color: #7C5DD4;             
+  
   }
   
   

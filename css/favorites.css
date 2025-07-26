@@ -1,76 +1,87 @@
-/* favorites.css */
-
-/* تنسيقات عامة (كما كانت لديك) */
-.container {
+main {
+    padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 30px 0 0px; 
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
 }
 
-a {
-    text-decoration: none;
-}
 
-/* Page Title */
 .page-title {
     text-align: center;
     font-size: 30px;
-    color: #333; /* لون نص الصفحة ليتماشى مع الثيم */
-    margin-bottom: 40px;
-    padding-top: 40px;
+    color: #7C5DD4;
+    margin-bottom: 30px;
+    padding: 0 0 15px;
+    border-bottom: 2px solid #e0e0e0; /* خط سفلي سميك وواضح */
 }
 
-/* Empty Favorites Section */
-.empty-favorites-section {
+
+
+
+
+/* empty favorites */
+.empty-favorites {
     text-align: center;
     padding: 60px 20px;
-    background-color: #7C5DD4; /* لون أرجواني من الثيم */
-    color: white; /* لون النص ليتناسب مع الخلفية */
-    border-radius: 8px;
+    background-color: #7C5DD4; 
+    color: white; 
+    border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     max-width: 600px;
     margin: 40px auto;
 }
 
-.empty-favorites-section .empty-icon {
-    font-size: 4rem;
+.empty-favorites .empty-icon {
+    font-size: 50px;
     color: white;
     margin-bottom: 20px;
 }
 
-.empty-favorites-section h2 {
-    font-size: 1.8rem;
+.empty-favorites h2 {
+    font-size: 25px;
     color: white;
     margin-bottom: 15px;
 }
 
-.empty-favorites-section p {
-    font-size: 1.1rem;
+.empty-favorites p {
+    font-size: 20px;
     color: white;
     margin-bottom: 30px;
 }
 
 /* زر "Browse Books Now" في قسم "Empty Favorites" */
-.empty-favorites-section .btn-primary {
-    background-color: white; /* خلفية بيضاء */
-    color: #7C5DD4; /* نص أرجواني */
-    border: 1px solid #7C5DD4; /* حدود أرجوانية */
+.empty-favorites .sections-btn {
+    background-color: white; 
+    color: #7C5DD4; 
+    border: 1px solid #7C5DD4; 
     padding: 12px 25px;
     font-weight: bold;
-    font-size: 1.05rem;
-    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
     text-decoration: none;
     display: inline-block;
 }
 
-.empty-favorites-section .btn-primary:hover {
-    background-color: #6a4ec7;
-    color: white;
+.empty-favorites .sections-btn:hover {
+    background-color: #E5DEFA;
+    color: #7C5DD4;
 }
 
+
+
+
+
+
+
+
+
+
+
 /* تنسيقات حاوية الكتب المفضلة (لتنسيق grid) */
-.favorites-list-container {
+.favorites-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -231,17 +242,17 @@ a {
         margin-bottom: 20px;
     }
 
-    .empty-favorites-section {
+    .empty-favorites {
         padding: 40px 15px;
         margin: 20px auto;
     }
-    .empty-favorites-section .empty-icon {
+    .empty-favorites .empty-icon {
         font-size: 3rem;
     }
-    .empty-favorites-section h2 {
+    .empty-favorites h2 {
         font-size: 1.5rem;
     }
-    .empty-favorites-section p {
+    .empty-favorites p {
         font-size: 1rem;
     }
 
@@ -300,7 +311,7 @@ a {
         height: 32px;
         font-size: 15px;
     }
-    .favorites-list-container {
+    .favorites-container {
         gap: 15px;
     }
 }

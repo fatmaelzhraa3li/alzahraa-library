@@ -6,13 +6,13 @@
   <title> Alzahraa Library</title>
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/cart.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
   <!-- Header: يحتوي اسم الموقع وروابط التنقل -->
   <header>
-   <h1> Alzahraa Library 📚</h1>
+   <h1> Alzahraa Library</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -28,24 +28,36 @@
 
   
   
-<main class="cart-page-content">
-        <h2>Your Shopping Cart</h2>
-        <div id="cartItemsContainer" class="cart-items-container">
-            <p id="emptyCartMessage" class="empty-message">Your cart is empty.</p>
-        </div>
+<main>
+        <h2 class="page-title">Your Shopping Cart</h2>
+        
+        <section id="emptyMessage" class="empty-cart"  style="display: none;">
+         <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty!</h2>
+            <p>You don't have any cart books in this section yet, Start exploring and add some.</p>
+            <a href="sections.html" class="sections-btn">Browse Books Now</a>
+        </section>
 
-        <div class="cart-summary">
-            <h3>Order Summary</h3>
-            <div class="summary-item">
+
+
+        <section id="cartContainer" class="cart-container"  style="display: none;"> 
+        </section>
+
+
+
+
+        <section class="Order-details">
+            <h3>Order Details</h3>
+            <div class="total-items">
                 <span>Total Items:</span>
                 <span id="totalItems">0</span>
             </div>
-            <div class="summary-item total">
+            <div class="total-price">
                 <span>Total Price:</span>
                 <span id="totalPrice">$0.00</span>
             </div>
-            <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
-        </div>
+            <button id="checkoutBtn" class="checkout-btn">Buy Now</button>
+          </section>
 </main>
 
   
@@ -58,6 +70,7 @@
   <p>  All rights reserved &copy; Alzahraa Library 2025</p>
 </footer>
   <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
 

@@ -11,7 +11,7 @@
 <body>
 
   <header>
-   <h1> Alzahraa Library 📚</h1>
+   <h1> Alzahraa Library</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -26,44 +26,24 @@
   
   
   
-  
-<div class="login-container">
-  <h2>Login to your Account</h2>
-  
-  <form id="loginForm">
-    <div class="input-group">
-      <label for="email">Email</label>
-      <div class="input-with-icon">
-        <i class="fas fa-at icon"></i> <input type="email" id="email" placeholder="Enter your Email" required>
-      </div>
-    </div>
+<main>
+  <h2 class="page-title">Login to your Account</h2>
+  <section class="login-container">
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Enter your Email" required>
+      <input type="password" id="password" placeholder="Enter your Password" required>
+      
+      <button type="submit" class="sign-in-btn">Sign in</button>
+      <p id="message" class="message"></p>
+    </form>
     
-    <div class="input-group">
-      <label for="password">Password</label>
-      <div class="input-with-icon">
-        <i class="fas fa-lock icon"></i> <input type="password" id="password" placeholder="Enter your Password" required>
-        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-      </div>
-    </div>
-    
-    <div class="options-group">
-      <div class="remember-me">
-        <input type="checkbox" id="rememberMe">
-        <label for="rememberMe">Remember me</label>
-      </div>
-      <a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot password?</a>
-    </div>
-    
-    <button type="submit" class="sign-in-btn">Sign In</button>
-    <p id="message" class="message"></p>
-  </form>
-  
-  <div class="divider">Or</div> <button type="button" class="google-sign-in-btn" id="googleSignInBtn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_of_Google_reCAPTCHA.svg" alt="Google icon" class="google-icon">
-    Sign in with Google Account
-  </button>
-  </div>
-  
+    <div class="divider">Or</div> <button type="button" class="google-sign-in-btn" id="googleSignInBtn"> 
+      Sign in with Google Account
+    </button>
+  </section>
+
+</main>
+
   
   
   
@@ -79,4 +59,5 @@
 </footer>
 </body>
 <script src="js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html> 

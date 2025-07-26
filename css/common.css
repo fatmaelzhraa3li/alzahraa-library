@@ -8,7 +8,7 @@ header {
   z-index: 1000; /* قيمة عالية لضمان الظهور فوق العناصر الأخرى */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
   margin: 0px;
-  padding: 15px 20px;
+  padding: 0px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

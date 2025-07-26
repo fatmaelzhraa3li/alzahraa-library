@@ -1,8 +1,8 @@
 // favorites.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const emptyFavoritesSection = document.querySelector('.empty-favorites-section');
-    const favoritesListContainer = document.querySelector('.favorites-list-container');
+    const emptyFavorites = document.getElementById('emptyFavorites');
+    const favoritesContainer = document.getElementById('favoritesContainer');
 
     const API_URL = 'https://edu-me01.github.io/Json-Data/Digital-Library.json';
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // دالة لعرض الكتب المفضلة
     async function displayFavorites() {
-        favoritesListContainer.innerHTML = ''; // مسح المحتوى الحالي
+        favoritesContainer.innerHTML = ''; // مسح المحتوى الحالي
         
         const favoriteBookIds = getFavoriteBookIds(); // جلب الـ IDs المفضلة
         const cartItems = getCartItems(); // جلب عناصر السلة لـ "Add to Cart"
@@ -132,20 +132,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const favoriteBooks = allBooks.filter(book => favoriteBookIds.includes(book.id));
 
         if (favoriteBooks.length === 0) {
-            emptyFavoritesSection.style.display = 'block';
-            favoritesListContainer.style.display = 'none';
+            emptyFavorites.style.display = 'block';
+            favoritesContainer.style.display = 'none';
         } else {
-            emptyFavoritesSection.style.display = 'none';
-            favoritesListContainer.style.display = 'flex';
-            favoritesListContainer.style.flexWrap = 'wrap';
-            favoritesListContainer.style.gap = '30px';
-            favoritesListContainer.style.justifyContent = 'center';
+            emptyFavorites.style.display = 'none';
+            favoritesContainer.style.display = 'flex';
+            favoritesContainer.style.flexWrap = 'wrap';
+            favoritesContainer.style.gap = '30px';
+            favoritesContainer.style.justifyContent = 'center';
 
             favoriteBooks.forEach(book => {
                 const isFavorited = true; // في صفحة المفضلة، الكتاب المعروض هو مفضل دائماً
                 const isInCart = cartItems.some(item => item.bookId === book.id);
                 const cardHtml = renderBookCard(book, isFavorited, isInCart); // استخدام renderBookCard العادية
-                favoritesListContainer.insertAdjacentHTML('beforeend', cardHtml);
+                favoritesContainer.insertAdjacentHTML('beforeend', cardHtml);
             });
 
             // إضافة مستمعي الأحداث لأزرار "Add to Cart"

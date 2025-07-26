@@ -9,7 +9,7 @@
 <body>
 
   <header>
-   <h1> Alzahraa Library 📚</h1>
+   <h1> Alzahraa Library</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -22,23 +22,30 @@
     </nav>
   </header>
   
-<main class="main-content container">
-  <h1 class="page-title">Your Favorite Books</h1>
+
+
+
+<main>
+  <h2 class="page-title">Your Favorite Books</h2>
   
-  <section class="empty-favorites-section" style="display: none;">
+  <section id="emptyFavorites" class="empty-favorites" style="display: none;">
     <i class="far fa-heart empty-icon"></i>
     <h2>Your favorites list is empty!</h2>
-    <p>Browse our wide selection of books and add what you like to find it here later.</p>
-    <a href="sections.html" class="btn btn-primary">Browse Books Now</a>
+    <p>You don't have any favorite books in this section yet, Start exploring and add some.</p>
+    <a href="sections.html" class="sections-btn">Browse Books Now</a>
   </section>
   
-  <section class="favorites-list-container" style="display: none;">
+  <section id="favoritesContainer" class="favorites-container" style="display: none;">
   </section>
 </main>
   
+
+
+
 <footer>
   <p>  All rights reserved &copy; Alzahraa Library 2025</p>
 </footer>
   <script src="js/favorites.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

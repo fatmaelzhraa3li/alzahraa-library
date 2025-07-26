@@ -2,43 +2,44 @@
 main {
     padding: 20px;
     max-width: 1200px;
-    margin: 20px auto; /* مسافة من أعلى وأسفل */
-    background-color: #fcfcfc; /* خلفية خفيفة للمحتوى الرئيسي */
+    margin: 30px 0 0px; 
+    background-color: #fff; 
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
 }
 
-/* تنسيقات عنوان الصفحة */
-.page-title-section {
+
+.page-title {
     text-align: center;
+    color: #7C5DD4;
     margin-bottom: 30px;
-    padding: 15px 0;
+    padding: 0 0 15px;
     border-bottom: 2px solid #e0e0e0; /* خط سفلي سميك وواضح */
 }
 
-.page-title-section h2 {
-    font-size: 2.8em; /* حجم أكبر للعنوان */
-    color: #7C5DD4; /* لون مميز يتماشى مع الثيم */
+.page-title h2 {
+    font-size: 30px; 
+    color: #7C5DD4; 
     margin: 0;
     font-weight: 700;
 }
 
 /* تنسيقات قسم الفئات (Categories) */
 .categories-section {
-    background-color: #E5DEFA; /* لون خلفية للقسم */
-    border: 1px solid #dcdcdc; /* حد خفيف */
+    background-color: #E5DEFA; 
+    border: 1px solid #dcdcdc; 
     border-radius: 10px;
     padding: 25px;
-    margin-bottom: 40px; /* مسافة أكبر أسفل القسم */
+    margin-bottom: 40px; 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-.categories-section h3 {
-    font-size: 1.8em;
-    color: #7C5DD4; /* لون العنوان يتماشى مع الثيم */
+.categories-section h2 {
+    font-size: 25px;
+    color: #7C5DD4; 
     margin-top: 0;
     margin-bottom: 20px;
-    text-align: center; /* توسيط العنوان */
+    text-align: center; 
 }
 
 .categories-list {

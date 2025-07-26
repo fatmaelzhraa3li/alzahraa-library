@@ -43,8 +43,8 @@ async function fetchBookData(bookId) {
 // Function to render (display) cart items on the page
 // دالة لعرض عناصر سلة التسوق في الصفحة
 async function renderCart() {
-    const cartItemsContainer = document.getElementById('cartItemsContainer');
-    const emptyCartMessage = document.getElementById('emptyCartMessage');
+    const cartContainer = document.getElementById('cartContainer');
+    const emptyMessage = document.getElementById('emptyMessage');
     const totalItemsSpan = document.getElementById('totalItems');
     const totalPriceSpan = document.getElementById('totalPrice');
 
@@ -54,8 +54,8 @@ async function renderCart() {
     // Show/hide empty cart message
     // إظهار/إخفاء رسالة "السلة فارغة"
     if (cart.length === 0) {
-        emptyCartMessage.style.display = 'block';
-        cartItemsContainer.innerHTML = ''; // Clear any existing items
+        emptyMessage.style.display = 'block';
+        cartContainer.innerHTML = ''; // Clear any existing items
         // مسح أي عناصر موجودة
         totalItemsSpan.textContent = '0';
         totalPriceSpan.textContent = '$0.00'; // Ensure total price is 0.00 when cart is empty
@@ -63,12 +63,12 @@ async function renderCart() {
         return; // Exit if cart is empty
         // الخروج إذا كانت السلة فارغة
     } else {
-        emptyCartMessage.style.display = 'none';
+        emptyMessage.style.display = 'none';
     }
 
     // Clear previous items before re-rendering
     // مسح العناصر السابقة قبل إعادة العرض
-    cartItemsContainer.innerHTML = '';
+    cartContainer.innerHTML = '';
 
     let totalItemsCount = 0;
     let overallTotalPrice = 0;
@@ -103,7 +103,7 @@ async function renderCart() {
 
             // Image handling: use coverImage from API, or a fallback if not available
             // التعامل مع الصور: استخدم coverImage من الـ API، أو صورة بديلة إذا لم تكن متاحة
-            const imageUrl = bookDetails.coverImage || './images/book.jpg'; // Corrected relative path
+            const imageUrl = bookDetails.coverImage || '../images/book.png'; // Corrected relative path
             // مسار نسبي مصحح
 
             cartItemDiv.innerHTML = `
@@ -123,7 +123,7 @@ async function renderCart() {
             // Display price formatted to two decimal places
             // عرض السعر منسقًا إلى رقمين عشريين
 
-            cartItemsContainer.appendChild(cartItemDiv);
+            cartContainer.appendChild(cartItemDiv);
         }
     }
 
