@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const emailInput = document.getElementById('email');
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-<<<<<<< HEAD
 });
 
 
@@ -94,6 +95,4 @@ function handleGoogleResponse(response) {
     const idToken = response.credential;
     console.log("تم تسجيل الدخول بنجاح! ID Token:", idToken);
 }
-=======
-});
->>>>>>> cafe90955fabc44c9dac639611df7a6ce13ae7fd
+
