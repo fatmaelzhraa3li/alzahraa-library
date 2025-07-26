@@ -1,0 +1,317 @@
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+}
+
+
+.page-title {
+    text-align: center;
+    font-size: 30px;
+    color: #7C5DD4;
+    margin-bottom: 30px;
+    padding: 0 0 15px;
+    border-bottom: 2px solid #e0e0e0; /* خط سفلي سميك وواضح */
+}
+
+
+
+
+
+/* empty favorites */
+.empty-favorites {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #7C5DD4; 
+    color: white; 
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.empty-favorites .empty-icon {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.empty-favorites h2 {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.empty-favorites p {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* زر "Browse Books Now" في قسم "Empty Favorites" */
+.empty-favorites .sections-btn {
+    background-color: white; 
+    color: #7C5DD4; 
+    border: 1px solid #7C5DD4; 
+    padding: 12px 25px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.empty-favorites .sections-btn:hover {
+    background-color: #E5DEFA;
+    color: #7C5DD4;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* تنسيقات حاوية الكتب المفضلة (لتنسيق grid) */
+.favorites-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 0;
+    min-height: 400px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* تنسيقات الـ book-card الموحدة (مأخوذة من sections.css/index.css) */
+/* ---------------------------------------------------------------------- */
+
+/* كارت كل كتاب */
+.book-card {
+    width: 250px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.2s ease; /* إضافة transform للـ hover effect */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* تأثير بسيط عند التمرير */
+}
+
+/* صور الكتب داخل الكارد */
+.book-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* معلومات الكتاب (العنوان، المؤلف، السعر) */
+.book-info {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* عنوان الكتاب */
+.book-title {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+/* مؤلف الكتاب */
+.book-author {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* سعر الكتاب (تم إضافته ليتماشى مع الثيم) */
+.book-price {
+    font-size: 1.2em;
+    color: #7C5DD4; /* لون أرجواني للسعر ليتماشى مع الثيم */
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+/* حاوية الأزرار داخل الكارد */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* زر Add to Cart */
+.actions .add-to-cart-btn {
+  background-color: #7C5DD4;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  flex-grow: 1;
+  max-width: 120px;
+}
+
+.actions .add-to-cart-btn:hover {
+  background-color: #6a4ec7;
+}
+
+.actions .add-to-cart-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* زر Favorite (القلب) */
+.actions .favorite-btn {
+  background-color: #f0f0f0;
+  color: #7C5DD4;
+  border: 1px solid #7C5DD4;
+  padding: 8px 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 5px; /* تأكد من وجود border-radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.actions .favorite-btn:hover {
+  background-color: #7C5DD4;
+  color: white;
+}
+
+/* حالة زر Favorite عندما يكون مفضلاً */
+.actions .favorite-btn.favorited {
+  color: red;
+  border-color: red;
+  background-color: red;
+  color: white;
+}
+.actions .favorite-btn.favorited:hover {
+  background-color: #cc0000;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Responsive adjustments (من favorites.css السابق، مع تعديلات بسيطة) */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .empty-favorites {
+        padding: 40px 15px;
+        margin: 20px auto;
+    }
+    .empty-favorites .empty-icon {
+        font-size: 3rem;
+    }
+    .empty-favorites h2 {
+        font-size: 1.5rem;
+    }
+    .empty-favorites p {
+        font-size: 1rem;
+    }
+
+    /* تعديل عرض الكارد على التابلت */
+    .book-card {
+        width: 180px;
+    }
+    .book-card img {
+        height: 220px;
+    }
+    .book-title {
+        font-size: 1em;
+    }
+    .book-author {
+        font-size: 0.85em;
+    }
+    .book-price {
+        font-size: 1.1em;
+    }
+    .actions .add-to-cart-btn {
+        font-size: 14px;
+        padding: 7px 12px;
+        max-width: 100px;
+    }
+    .actions .favorite-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* تعديل عرض الكارد على الموبايل */
+    .book-card {
+        width: 140px;
+    }
+    .book-card img {
+        height: 180px;
+    }
+    .book-title {
+        font-size: 0.9em;
+    }
+    .book-author {
+        font-size: 0.75em;
+    }
+    .book-price {
+        font-size: 1.0em;
+    }
+    .actions .add-to-cart-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+        max-width: 80px;
+    }
+    .actions .favorite-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+    .favorites-container {
+        gap: 15px;
+    }
+}

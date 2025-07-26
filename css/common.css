@@ -1,0 +1,96 @@
+/* تنسيقات موجوده بمل صفحه  */
+/* الهيدر والنافيجيشن */
+header {
+  background-color: #7C5DD4;
+  color: white;
+  position: sticky;
+  top: 0; /* هذا السطر مهم جداً */
+  z-index: 1000; /* قيمة عالية لضمان الظهور فوق العناصر الأخرى */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  margin: 0px;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.book-icon{
+  color: #ffffff; 
+}
+
+
+nav ul {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0; /* تأكد من إزالة أي هامش افتراضي */
+  padding: 0; /* تأكد من إزالة أي حشوة افتراضية */
+}
+
+nav a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #f2f3f5;
+  text-decoration: none; /* مهم لإزالة الخط الافتراضي */
+  border-radius: 8px; /* ممكن تحتفظ بيها لو حبيت شكل الأطراف المدورة */
+  font-weight: bold;
+  
+  /* الجزء الخاص بالخط السفلي الشفاف في الحالة العادية */
+  border-bottom: 2px solid transparent; 
+  /* انتقال سلس للخط واللون */
+  transition: border-bottom 0.3s ease, color 0.3s ease; 
+  
+  /* لإزالة الظل الأزرق عند التركيز (Focus) */
+  outline: none; 
+}
+
+
+
+nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+nav a:hover {
+  border-bottom-color: white;
+}
+
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #F8F6FC;
+  direction: ltr;
+}
+
+
+
+
+footer {
+  background-color: #7C5DD4;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  margin-top: 50px;
+}
+footer p {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+} 
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Alzahraa Library</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header: يحتوي اسم الموقع وروابط التنقل -->
+  <header>
+   <h1>  <i class="fa-solid fa-book-open book-icon"></i>  Alzahraa Library</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sections.html"> Sections</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+
+  <!-- Section تحتوي على المقال وشريط البحث -->
+<section class="about-search">
+  <div class="about">
+    
+    <h2>Hello my friend </h2>
+    <h4>Find the best English books here! Browse our big collection and easily pick your favorite. We have books for all tastes and topics you're looking for. Start your enjoyable reading journey now with Al zahraa Library!</h4>
+  </div>
+ 
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="  search for a book ...">
+    <button onclick="searchBooks()">search</button>
+  </div>
+</section>
+
+
+<main>
+
+<h2 class="books-container">Suggested Books</h2> 
+  <div class="container">
+    <!-- Main: عرض الكتب المقترحة من API -->
+    <section id="booksContainer">
+        <!--الكتب هتظهر هنا من جافا سكريبت -->
+    </section>
+  </div>
+
+</main>
+
+
+
+<footer>
+  <p>  All rights reserved &copy; Alzahraa Library 2025</p>
+</footer>
+  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
+

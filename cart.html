@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Alzahraa Library</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header: يحتوي اسم الموقع وروابط التنقل -->
+  <header>
+   <h1>  <i class="fa-solid fa-book-open book-icon"></i>  Alzahraa Library</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sections.html"> Sections</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  
+  
+<main>
+        <h2 class="page-title">Your Shopping Cart</h2>
+        
+        <section id="emptyMessage" class="empty-cart"  style="display: none;">
+         <i class="fas fa-shopping-cart"></i>
+            <h2>Your cart is empty!</h2>
+            <p>You don't have any cart books in this section yet, Start exploring and add some.</p>
+            <a href="sections.html" class="sections-btn">Browse Books Now</a>
+        </section>
+
+
+
+        <section id="cartContainer" class="cart-container"  style="display: none;"> 
+        </section>
+
+
+
+
+        <section class="Order-details">
+            <h3>Order Details</h3>
+            <div class="total-items">
+                <span>Total Items:</span>
+                <span id="totalItems">0</span>
+            </div>
+            <div class="total-price">
+                <span>Total Price:</span>
+                <span id="totalPrice">$0.00</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Buy Now</button>
+          </section>
+</main>
+
+  
+  
+  
+  
+  
+  
+<footer>
+  <p>  All rights reserved &copy; Alzahraa Library 2025</p>
+</footer>
+  <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
+
+
